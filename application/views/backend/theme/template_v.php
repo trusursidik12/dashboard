@@ -180,7 +180,8 @@
 </div>
 <!-- ./wrapper -->
 
-
+<!-- Bootstrap 4 -->
+<script src="<?= base_url() ?>assets/backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url() ?>assets/backend/dist/js/adminlte.js"></script>
 
 </body>
