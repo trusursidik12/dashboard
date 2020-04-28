@@ -9,11 +9,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/backend/dist/css/adminlte.min.css">
-  <!-- DataTables CSS-->  
-  <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="<?= base_url('assets/backend/plugins/datatables-buttons/css/buttons.dataTables.min.css') ?>">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?= base_url('assets/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.css') ?>">
+  <!-- <link rel="stylesheet" href="<?= base_url('assets/backend/plugins/datatables-buttons/css/buttons.dataTables.min.css') ?>"> -->
   <style type="text/css">
     .hr{
       border: 1px solid red;
@@ -21,19 +38,6 @@
       margin-bottom: 0px;
     }
   </style>
-  <!-- AdminLTE App -->
-  <script src="<?= base_url('assets/backend/dist/js/jquery.min.js') ?>"></script>
-  <!-- <script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script> -->
-  <!-- DataTables JS-->
-  <script src="<?= base_url('assets/backend/plugins/datatables/jquery.dataTables.js') ?>"></script>
-  <script src="<?= base_url('assets/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.js') ?>"></script>
-
-  <script src="<?= base_url('assets/backend/plugins/datatables-buttons/js/dataTables.buttons.min.js') ?>"></script>
-  <script src="<?= base_url('assets/backend/plugins/datatables-buttons/js/jszip.min.js') ?>"></script>
-  <script src="<?= base_url('assets/backend/plugins/datatables-buttons/js/pdfmake.min.js') ?>"></script>
-  <script src="<?= base_url('assets/backend/plugins/datatables-buttons/js/buttons.html5.min.js') ?>"></script>
-  <script src="<?= base_url('assets/backend/plugins/datatables/jquery.dataTables.js') ?>"></script>
-  <script src="<?= base_url('assets/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.js') ?>"></script>
   
 </head>
 <!-- sidebar-collapse (untuk hide)-->
@@ -48,7 +52,6 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block" style="padding-top: 5px;">
-        <!-- <a href="<?= site_url() ?>" target="_blank" class="btn btn-outline-primary btn-sm">Home</a> -->
       </li>
     </ul>
 
@@ -80,7 +83,7 @@
     <!-- Brand Logo -->
     <a href="<?= site_url() ?>" class="brand-link">
       <img src="<?=base_url('assets/backend/img/dashboard/logo.png')?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">DASHBOARD</span>
+      <span class="brand-text font-weight-light">ISPUMAP</span>
     </a>
 
     <!-- Sidebar -->
@@ -108,7 +111,7 @@
               </p>
             </a>
           </li>
-          <?php if($this->fungsi->user_login()->usr_lvl_id == 1) : ?>
+          <?php if($this->fungsi->user_login()->usr_lvl_id == '1') : ?>
             <li class="nav-header">ADMINISTRATOR</li>
             <li class="nav-item has-treeview
             <?= $this->uri->uri_string() == 'accounts/users/list'
@@ -168,6 +171,7 @@
 <!-- ./wrapper -->
 
 
+<script src="<?= base_url() ?>assets/backend/dist/js/adminlte.js"></script>
 
 </body>
 </html>
