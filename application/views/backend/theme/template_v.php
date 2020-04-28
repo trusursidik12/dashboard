@@ -38,6 +38,16 @@
       margin-bottom: 0px;
     }
   </style>
+
+  <!-- jQuery -->
+  <script src="<?= base_url('assets/backend/plugins/jquery/jquery.min.js') ?>"></script>
+  <script src="<?= base_url('assets/backend/plugins/datatables/jquery.dataTables.js') ?>"></script>
+  <script src="<?= base_url('assets/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.js') ?>"></script>
+
+  <script src="<?= base_url('assets/backend/plugins/datatables-buttons/js/dataTables.buttons.min.js') ?>"></script>
+  <script src="<?= base_url('assets/backend/plugins/datatables-buttons/js/jszip.min.js') ?>"></script>
+  <script src="<?= base_url('assets/backend/plugins/datatables-buttons/js/pdfmake.min.js') ?>"></script>
+  <script src="<?= base_url('assets/backend/plugins/datatables-buttons/js/buttons.html5.min.js') ?>"></script>
   
 </head>
 <!-- sidebar-collapse (untuk hide)-->
