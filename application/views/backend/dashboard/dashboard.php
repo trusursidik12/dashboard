@@ -26,9 +26,9 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3><?= $this->b_aqms_m->count_data_by_id_stasiun($stasiun['id_stasiun']) ?></h3>
+                  <h3><?= $this->fungsi->count_aqmdata($stasiun['id_stasiun']) ?></h3>
 
-                  <p><?= $stasiun['id_stasiun'] ?></p>
+                  <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
                 </div>
                 <div class="icon">
                   <i class="ion">

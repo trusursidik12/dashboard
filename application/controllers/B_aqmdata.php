@@ -12,7 +12,7 @@ class B_aqmdata extends CI_Controller {
     public function idstasiun($idstasiun = NULL)
     {
 
-        $data['idstasiun']      = $this->b_aqms_m->get_stasiun($idstasiun);
+        $data['idstasiun']      = $this->b_aqms_m->get_stasiunid($idstasiun);
         $data['controllers']    = "dashboard";
         $data['title_header']   = "aqm data";
 
@@ -26,8 +26,17 @@ class B_aqmdata extends CI_Controller {
 	public function get_ajax() {
 
         $idstasiun = @$_GET['id_stasiun'];
+        
+        $from = $this->input->post('from');
+        $to = $this->input->post('to');
 
-        $list = $this->b_aqms_m->get_datatables($idstasiun);
+        if($from!='' && $to!='')
+        {
+            $from = date('Y-m-d',strtotime($from));
+            $to = date('Y-m-d',strtotime($to));
+        }
+
+        $list = $this->b_aqms_m->get_datatables($from,$to,$idstasiun);
         $data = array();
         $no = @$_POST['start'];
         foreach ($list as $aqms) {
@@ -45,7 +54,7 @@ class B_aqmdata extends CI_Controller {
             $row[] = $aqms->hc;
             $row[] = $aqms->voc;
             $row[] = $aqms->nh3;
-            $row[] = $aqms->no2;
+            $row[] = $aqms->no;
             $row[] = $aqms->h2s;
             $row[] = $aqms->cs2;
             $row[] = $aqms->ws;
@@ -60,7 +69,7 @@ class B_aqmdata extends CI_Controller {
         $output = array(
                     "draw" => @$_POST['draw'],
                     "recordsTotal" => $this->b_aqms_m->count_all($idstasiun),
-                    "recordsFiltered" => $this->b_aqms_m->count_filtered($idstasiun),
+                    "recordsFiltered" => $this->b_aqms_m->count_filtered($from,$to,$idstasiun),
                     "data" => $data,
                 );
         // output to json format
