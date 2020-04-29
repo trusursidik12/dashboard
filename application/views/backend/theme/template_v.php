@@ -104,7 +104,7 @@
           <img src="<?= base_url('assets/backend/img/accounts/users/nophoto/nophoto.png') ?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?= $this->fungsi->user_login()->usr_fullname ?></a>
+          <a href="<?= site_url('wellcome') ?>" class="d-block"><?= $this->fungsi->user_login()->usr_fullname ?></a>
         </div>
       </div>
 
@@ -118,6 +118,16 @@
               <p>
                 Dashboard
                 <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <?php foreach(array_slice($idstasiunloop, 0, 1) as $stasiunid) : ?>
+              <a href="<?= site_url('aqmdata/'.$stasiunid['id_stasiun']) ?>" class="nav-link <?= $this->uri->uri_string() == 'aqmdata/' ? 'active' : ''; ?>">
+            <?php endforeach ?>
+              <i class="nav-icon fas fa-database"></i>
+              <p>
+                Aqm Data
               </p>
             </a>
           </li>

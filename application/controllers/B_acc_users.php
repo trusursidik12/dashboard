@@ -14,7 +14,7 @@ class B_acc_users extends CI_Controller {
 	public function index()
 	{
 		$data['users'] 			= $this->b_acc_users_m->get_users();
-		// $data['iconbar'] 		= $this->global_m->get_iconbar();
+		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
 		$data['title_header'] 	= "Users List";
 		$data['title_menu'] 	= "Add User";
 		$data['controllers'] 	= "users";

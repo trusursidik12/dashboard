@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // backend
 $route['aqmdata/(:any)']				= 'b_aqmdata/idstasiun/$1';
 $route['ajax/aqmdata']					= 'b_aqmdata/get_ajax';
+$route['wellcome']						= 'b_dashboard/wellcome';
 $route['dashboard']						= 'b_dashboard/index';
 
 $route['login']							= 'b_acc_login/login';

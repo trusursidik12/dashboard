@@ -12,9 +12,19 @@ class B_dashboard extends CI_Controller {
 	public function index()
 	{
 		$data['title_header'] 	= "Dashboard";
-		$data['controllers'] 	= "levels";
+		$data['controllers'] 	= "dashboard";
 		$data['aqmstasiun']		= $this->b_aqms_m->get_stasiun();
+		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
 
 		$this->temp_backend->load('backend/theme/template_v', 'backend/dashboard/dashboard', $data);
+	}
+
+	public function wellcome()
+	{
+		$data['title_header'] 	= "Wellcome";
+		$data['controllers'] 	= "dashboard";
+		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
+
+		$this->temp_backend->load('backend/theme/template_v', 'backend/dashboard/wellcome', $data);
 	}
 }

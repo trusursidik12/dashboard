@@ -13,8 +13,7 @@ class B_acc_levels extends CI_Controller {
 	public function index()
 	{
 		$data['levels'] 		= $this->b_acc_levels_m->get_levels();
-		// $data['iconbar'] 		= $this->global_m->get_iconbar();
-		// $data['users'] 			= $this->b_acc_levels_m->get_users();
+		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
 		$data['title_header'] 	= "Levels List";
 		$data['title_menu'] 	= "Add Level";
 		$data['controllers'] 	= "levels";
