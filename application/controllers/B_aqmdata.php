@@ -13,6 +13,7 @@ class B_aqmdata extends CI_Controller {
     {
 
         $data['idstasiun']      = $this->b_aqms_m->get_stasiunid($idstasiun);
+        $data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
         $data['controllers']    = "dashboard";
         $data['title_header']   = "aqm data";
 

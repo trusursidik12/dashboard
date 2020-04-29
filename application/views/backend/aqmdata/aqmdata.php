@@ -24,7 +24,16 @@
     <div class="row">
       <div class="col-12">
         <div class="card">
-          <div class="card-header"><h3 class="card-title"><?= $idstasiun['id_stasiun'] ?><?= $idstasiun['pm10'] != '' ? '<th>PM10</th>' : '' ?></h3>
+          <div class="card-header">
+            <h3 class="card-title">
+                  <div class="form-group">
+                    <select class="form-control" name="forma" onchange="location = this.value;">
+                <?php foreach($idstasiunloop as $stasiun) : ?>
+                      <option value="<?= site_url('aqmdata/'.$stasiun['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $stasiun['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $stasiun['id_stasiun'] ?></option>
+                <?php endforeach ?>
+                    </select>
+                  </div>
+              </h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body table-responsive">
