@@ -27,7 +27,7 @@ class B_acc_login extends CI_Controller {
 
 				echo "<script>
 					alert('Selamat, Anda berhasil login');
-					window.location='".site_url('dashboard')."';
+					window.location='".site_url('wellcome')."';
 					</script>";
 
 				}else{
