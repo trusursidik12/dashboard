@@ -123,7 +123,7 @@
           </li>
           <li class="nav-item">
             <?php foreach(array_slice($idstasiunloop, 0, 1) as $stasiunid) : ?>
-              <a href="<?= site_url('aqmdata/'.$stasiunid['id_stasiun']) ?>" class="nav-link <?= $this->uri->uri_string() == 'aqmdata/' ? 'active' : ''; ?>">
+              <a href="<?= site_url('aqmdata/'.$stasiunid['id_stasiun']) ?>" class="nav-link <?= $this->uri->uri_string() == 'aqmdata/'.$stasiunid['id_stasiun'].'' ? 'active' : ''; ?>">
             <?php endforeach ?>
               <i class="nav-icon fas fa-database"></i>
               <p>
