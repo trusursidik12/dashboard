@@ -24,7 +24,7 @@ class B_acc_users extends CI_Controller {
 
 	public function add(){
 		$data['levels'] 		= $this->b_acc_users_m->get_levels();
-		// $data['iconbar'] 		= $this->global_m->get_iconbar();
+		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
 		$data['title_header'] 	= 'Add User';
 		$data['title_menu'] 	= "Users List";
 		$data['controllers'] 	= "users";
@@ -69,7 +69,7 @@ class B_acc_users extends CI_Controller {
 	public function edit($slug = NULL){
 		$data['users'] 			= $this->b_acc_users_m->get_usersview($slug);
 		$data['levels'] 		= $this->b_acc_users_m->get_levels();
-		// $data['iconbar'] 		= $this->global_m->get_iconbar();
+		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
 		$data['title_header'] 	= 'Edit User';
 		$data['title_menu'] 	= "Users List";
 		$data['controllers'] 	= "users";

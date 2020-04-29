@@ -21,7 +21,7 @@ class B_acc_levels extends CI_Controller {
 	}
 
 	public function add(){
-		// $data['iconbar'] 		= $this->global_m->get_iconbar();
+		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
 		$data['title_header'] 	= "Add Levels";
 		$data['title_menu'] 	= "List Levels";
 		$data['controllers'] 	= "levels";
@@ -42,7 +42,7 @@ class B_acc_levels extends CI_Controller {
 
 	public function edit($slug = NULL){
 		$data['levels'] 		= $this->b_acc_levels_m->get_levelsview($slug);
-		// $data['iconbar'] 		= $this->global_m->get_iconbar();
+		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
 		$data['title_header'] 	= "Edit Levels";
 		$data['title_menu'] 	= "List Levels";
 		$data['controllers'] 	= "levels";
