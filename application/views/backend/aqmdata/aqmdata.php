@@ -60,7 +60,7 @@
               </div>
             </div>
 
-            <table id="aqmdata" class="table table-bordered table-striped" width="100%">
+            <table id="aqmdata" class="table table-bordered table-striped text-center" width="100%">
               <thead>
                 <tr class="text-center">
                   <th>NO</th>
@@ -123,7 +123,37 @@
         },
       },
       dom: "lBfrtip",
-    buttons: ['excel'],
+      buttons: [
+            'colvis',
+            {
+                extend: 'copyHtml5',
+                exportOptions: {
+                    columns: [ 0, ':visible' ]
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            }
+        ],
+      // buttons: [
+      //       'colvis'
+      //   ],
+    // buttons: ['excel'],
     "order": [ [2, "desc"]],
     } );
     
@@ -147,26 +177,3 @@
 
     });
 </script>
-
-<!-- <script>
-    $(document).ready(function() {
-      $('#aqmdata').DataTable({
-        "processing": true,
-        "serverSide": true,
-    "lengthMenu": [ [10, 25, 50, 100, 200, 300, 500, -1], [10, 25, 50, 100, 200, 300, 500, "All"] ],
-        "ajax": {
-          "url" : "<?= site_url() ?>ajax/aqmdata?id_stasiun=<?= $idstasiun['id_stasiun'] ?>",
-          "type" : "POST"
-        },
-    dom: "lBfrtip",
-    buttons: ['excel'],
-    "order": [ [2, "desc"]],
-    "columnDefs" : [
-          {
-            "targets" : [0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18 ,19 ,20, 21],
-            "orderable" : false
-          }
-        ]
-      })
-    })
-  </script> -->
