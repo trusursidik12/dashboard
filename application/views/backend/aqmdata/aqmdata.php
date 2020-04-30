@@ -28,9 +28,13 @@
             <h3 class="card-title">
                   <div class="form-group">
                     <select class="form-control" name="forma" onchange="location = this.value;">
-                <?php foreach($idstasiunloop as $stasiun) : ?>
-                      <option value="<?= site_url('aqmdata/'.$stasiun['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $stasiun['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $stasiun['id_stasiun'] ?></option>
-                <?php endforeach ?>
+                      <?php foreach($idstasiunloop as $stasiun) : ?>
+                        <?php foreach($aqmdata as $data) : ?>
+                          <?php if($stasiun['id_stasiun'] == $data['id_stasiun']) : ?>
+                            <option value="<?= site_url('aqmdata/'.$stasiun['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $stasiun['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $stasiun['id_stasiun'] ?></option>
+                          <?php endif ?>
+                        <?php endforeach ?>
+                      <?php endforeach ?>
                     </select>
                   </div>
               </h3>
