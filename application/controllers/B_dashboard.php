@@ -15,6 +15,7 @@ class B_dashboard extends CI_Controller {
 		$data['controllers'] 	= "dashboard";
 		$data['aqmstasiun']		= $this->b_aqms_m->get_stasiun();
 		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
+		$data['aqmdata']  		= $this->b_aqms_m->get_aqmdata();
 
 		$this->temp_backend->load('backend/theme/template_v', 'backend/dashboard/dashboard', $data);
 	}

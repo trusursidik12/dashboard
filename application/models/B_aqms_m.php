@@ -20,7 +20,15 @@ class B_aqms_m extends CI_Model {
 		return $query->row_array();
 	}
 
-    public function get_stasiunid($id)
+  public function get_aqmdata(){
+      $this->db2->select('*');
+      $this->db2->from('aqm_data');
+      $this->db2->where('id IN (select max(id) from aqm_data group by id_stasiun)');
+      $query = $this->db2->get();
+      return $query->result_array();
+  }
+
+  public function get_stasiunid($id)
     {
         $this->db2->select('*');
         $this->db2->from('aqm_stasiun_demo');
@@ -30,7 +38,7 @@ class B_aqms_m extends CI_Model {
         return $query->row_array();
     }
 
-    public function get_data_count_by_stasiun($idstasiun)
+  public function get_data_count_by_stasiun($idstasiun)
     {
         $this->db2->from('aqm_data');
         $this->db2->where('id_stasiun', $idstasiun);

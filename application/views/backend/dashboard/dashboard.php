@@ -22,21 +22,27 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <?php foreach($aqmstasiun as $stasiun) : ?>
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-info">
-                <div class="inner">
-                  <h3><?= $this->fungsi->count_aqmdata($stasiun['id_stasiun']) ?></h3>
+            <?php foreach($aqmdata as $data) : ?>
+              <?php if($stasiun['id_stasiun'] == $data['id_stasiun']) : ?>
+                <div class="col-lg-3 col-6">
+                  <!-- small box -->
+                  <div class="small-box <?php $date = date('Y-m-d H:i:s', strtotime($data['waktu']) + 60*60) ?> <?= $date < date('Y-m-d H:i:s') ? 'bg-danger' : 'bg-info' ?>">
+                    <div class="inner">
+                      <h6 style="font-size: 12px;">
+                        LAST DATA | <?= $data['waktu'] ?>
+                      </h6>
 
-                  <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
+                      <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion">
+                      <img src="<?= base_url('assets/backend/img/dashboard/station.png') ?>"></i>
+                    </div>
+                    <a href="<?= site_url('aqmdata/'.$stasiun['id_stasiun']) ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  </div>
                 </div>
-                <div class="icon">
-                  <i class="ion">
-                  <img src="<?= base_url('assets/backend/img/dashboard/station.png') ?>"></i>
-                </div>
-                <a href="<?= site_url('aqmdata/'.$stasiun['id_stasiun']) ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
+              <?php endif ?>
+            <?php endforeach ?>
           <?php endforeach ?>
         </div>
       </div><!-- /.container-fluid -->
