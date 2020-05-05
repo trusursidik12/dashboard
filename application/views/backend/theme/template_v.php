@@ -135,6 +135,16 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <?php foreach(array_slice($idstasiunloop, 0, 1) as $stasiunid) : ?>
+              <a href="<?= site_url('aqmispu/'.$stasiunid['id_stasiun']) ?>" class="nav-link <?= $this->uri->uri_string() == 'aqmispu/'.$stasiunid['id_stasiun'].'' ? 'active' : ''; ?>">
+            <?php endforeach ?>
+              <i class="nav-icon fas fa-database"></i>
+              <p>
+                Aqm Ispu
+              </p>
+            </a>
+          </li>
           <?php if($this->fungsi->user_login()->usr_lvl_id == '1') : ?>
             <li class="nav-header">ADMINISTRATOR</li>
             <li class="nav-item has-treeview

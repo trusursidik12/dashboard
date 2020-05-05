@@ -29,9 +29,9 @@
                   <div class="form-group">
                     <select class="form-control" name="forma" onchange="location = this.value;">
                       <?php foreach($idstasiunloop as $stasiun) : ?>
-                        <?php foreach($aqmdata as $data) : ?>
+                        <?php foreach($aqmispu as $data) : ?>
                           <?php if($stasiun['id_stasiun'] == $data['id_stasiun']) : ?>
-                            <option value="<?= site_url('aqmdata/'.$stasiun['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $stasiun['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $stasiun['id_stasiun'] ?></option>
+                            <option value="<?= site_url('aqmispu/'.$stasiun['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $stasiun['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $stasiun['id_stasiun'] ?></option>
                           <?php endif ?>
                         <?php endforeach ?>
                       <?php endforeach ?>
@@ -60,7 +60,7 @@
               </div>
             </div>
 
-            <table id="aqmdata" class="table table-bordered table-striped text-center" width="100%">
+            <table id="aqmispu" class="table table-bordered table-striped text-center" width="100%">
               <thead>
                 <tr class="text-center">
                   <th>NO</th>
@@ -72,19 +72,6 @@
                   <th>CO</th>
                   <th>O3</th>
                   <th>NO2</th>
-                  <th>HC</th>
-                  <th>VOC</th>
-                  <th>NH3</th>
-                  <th>NO</th>
-                  <th>H2S</th>
-                  <th>CS2</th>
-                  <th>WS</th>
-                  <th>WD</th>
-                  <th>HUMIDITY</th>
-                  <th>TEMPERATURE</th>
-                  <th>PRESSURE</th>
-                  <th>SR</th>
-                  <th>RAIN INTENSITY</th>
                 </tr>
               </thead>
             <tbody>
@@ -116,7 +103,7 @@
 <script>
     $(document).ready(function () {
       
-        var dataTable =  $('#aqmdata').DataTable( {
+        var dataTable =  $('#aqmispu').DataTable( {
            language: {
             searchPlaceholder: "Input Disini .."
         },
@@ -124,7 +111,7 @@
       serverSide: true,
       "lengthMenu": [ [10, 25, 50, 100, 200, 300, 500, -1], [10, 25, 50, 100, 200, 300, 500, "All"] ],
       "ajax": {
-        "url": "<?= site_url() ?>ajax/aqmdata?id_stasiun=<?= $idstasiun['id_stasiun'] ?>",
+        "url": "<?= site_url() ?>ajax/aqmispu?id_stasiun=<?= $idstasiun['id_stasiun'] ?>",
         "type": "POST",
         "data":function(data) {
           data.from = $('#datepicker1').val();
@@ -167,10 +154,10 @@
             // },
             {
                 extend: 'pdfHtml5',
-                title: '<?= $idstasiun['nama'] ?> DATA',
+                title: '<?= $idstasiun['nama'] ?> IPSU',
                 orientation: 'landscape',
                 exportOptions: {
-                    columns: ':visible'
+                    columns: ':visible',
                 },
                 customize: function ( doc ) {
                   doc.styles.tableBodyEven.alignment = 'center';

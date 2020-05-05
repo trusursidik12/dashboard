@@ -2,8 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // backend
+$route['aqmispu/(:any)']				= 'b_aqmispu/idstasiun/$1';
+$route['ajax/aqmispu']					= 'b_aqmispu/get_ajax';
+
 $route['aqmdata/(:any)']				= 'b_aqmdata/idstasiun/$1';
 $route['ajax/aqmdata']					= 'b_aqmdata/get_ajax';
+
 $route['wellcome']						= 'b_dashboard/wellcome';
 $route['dashboard']						= 'b_dashboard/index';
 

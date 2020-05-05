@@ -28,6 +28,14 @@ class B_aqms_m extends CI_Model {
       return $query->result_array();
   }
 
+  public function get_aqmispu(){
+      $this->db2->select('*');
+      $this->db2->from('aqm_ispu');
+      $this->db2->where('id IN (select max(id) from aqm_ispu group by id_stasiun)');
+      $query = $this->db2->get();
+      return $query->result_array();
+  }
+
   public function get_stasiunid($id)
     {
         $this->db2->select('*');
@@ -185,6 +193,92 @@ class B_aqms_m extends CI_Model {
         elseif (isset($this->order)) // default order processing
         {
             $order = $this->order;
+
+            $this->db2->order_by(key($order), $order[key($order)]);
+
+        }
+    }
+    // end
+
+    // start
+    var $table_ispu = 'aqm_ispu'; // define table
+    var $column_order_ispu = array(null, 'id_stasiun', 'waktu'); //set column field database for datatable orderable
+    var $column_search_ispu = array('id_stasiun', 'waktu'); //set column field database for datatable searchable
+    var $order_ispu = array('id' => 'desc'); // default order
+
+    public function get_datatables_ispu($from, $to, $idstasiun)
+    {
+        $this->_get_datatables_query_ispu($from, $to, $idstasiun);
+       
+        if(@$_POST['length'] != -1)
+            $this->db2->limit(@$_POST['length'], @$_POST['start']);
+        
+        $query = $this->db2->get();
+        
+        return $query->result();
+    }
+
+    public function count_filtered_ispu($from, $to, $idstasiun)
+    {
+        $this->_get_datatables_query_ispu($from, $to, $idstasiun);
+       
+        $query = $this->db2->get();
+       
+        return $query->num_rows();
+    }
+
+    public function count_all_ispu($idstasiun)
+    {
+        $this->db2->from($this->table_ispu);
+        $this->db2->where('id_stasiun', $idstasiun);
+        return $this->db2->count_all_results();
+    }
+
+    private function _get_datatables_query_ispu($from,$to,$idstasiun)
+    {
+        $this->db2
+                // ->select('*')
+                ->distinct('id_stasiun, waktu, pm10, pm25, so2, co, o3, no2')
+                ->group_by('id_stasiun, waktu, pm10, pm25, so2, co, o3, no2')
+                ->from($this->table_ispu)
+                ->where('id_stasiun', $idstasiun);
+
+        if($from!='' && $to!='' || $from!= NULL) // To process our custom input parameter
+        {
+
+            $this->db2->where('waktu BETWEEN "'. date('Y-m-d', strtotime($from)). '" and "'. date('Y-m-d', strtotime($to)).'"');
+        }
+
+        $i = 0;
+        foreach ($this->column_search_ispu as $item) // loop column
+        {
+            if(@$_POST['search']['value']) // if datatable send POST for search
+            {
+
+                if($i===0) // first loop
+                {
+                    $this->db2->group_start(); // open bracket. query Where with OR clause better with bracket. because maybe can combine with other WHERE with AND.
+                    $this->db2->like($item, $_POST['search']['value']);
+                }
+                else
+                {
+                    $this->db2->or_like($item, $_POST['search']['value']);
+                }
+
+                if(count($this->column_search_ispu) - 1 == $i) //last loop
+                    $this->db2->group_end(); //close bracket
+            }
+            $i++;
+        }
+
+        if(isset($_POST['order'])) // here order processing
+        {
+            $this->db2->order_by($this->column_order_ispu[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+
+        }
+        elseif (isset($this->order_ispu)) // default order processing
+        {
+            $order = $this->order_ispu;
 
             $this->db2->order_by(key($order), $order[key($order)]);
 
