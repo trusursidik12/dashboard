@@ -57,8 +57,13 @@ class B_aqmdata extends CI_Controller {
             $row[] = $aqms->voc;
             $row[] = $aqms->nh3;
             $row[] = $aqms->no;
-            $row[] = $aqms->h2s;
-            $row[] = $aqms->cs2;
+            if($aqms->id_stasiun == 'CEMS_RUM'){
+                $row[] = round($aqms->h2s * 1500);
+                $row[] = round($aqms->cs2 * 3130);   
+            }else{
+                $row[] = $aqms->h2s;
+                $row[] = $aqms->cs2;                
+            }
             $row[] = $aqms->ws;
             $row[] = $aqms->wd;
             $row[] = $aqms->humidity;
