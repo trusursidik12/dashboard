@@ -78,7 +78,7 @@
                   <th>NO</th>
                   <th>H2S</th>
                   <th>CS2</th>
-                  <th>WS</th>
+                  <th><?= $idstasiun['id_stasiun'] == 'CEMS_RUM' ? 'VELOCITY' : 'WS' ?></th>
                   <th>WD</th>
                   <th>HUMIDITY</th>
                   <th>TEMPERATURE</th>
