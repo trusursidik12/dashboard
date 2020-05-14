@@ -46,14 +46,6 @@ class B_aqms_m extends CI_Model {
         return $query->row_array();
     }
 
-  public function get_data_count_by_stasiun($idstasiun)
-    {
-        $this->db2->from('aqm_data');
-        $this->db2->where('id_stasiun', $idstasiun);
-        $query = $this->db2->get();
-        return $query;
-    }
-
 	// public function count_data_by_id_stasiun($idstasiun){
 	// 	$sql 	= "SELECT COUNT(id) as count_id FROM aqm_data WHERE id_stasiun LIKE '%$idstasiun%'";
 	// 	$result = $this->db2->query($sql);
