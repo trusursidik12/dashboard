@@ -35,32 +35,39 @@
   <style type="text/css" media="print">
     @page {
       size: A3 landscape;
-   margin: 0.5cm;
-}
+       margin: 0.5cm;
+       -webkit-print-color-adjust: exact !important;
+    }
   </style>
   <style type="text/css">
     .hr{
       border: 1px solid red;
       margin-top: 0px;
       margin-bottom: 0px;
+      -webkit-print-color-adjust: exact !important;
     }
     .green{
+      -webkit-print-color-adjust: exact !important;
       background-image: url(<?= base_url('assets/backend/img/report/green.png') ?>);
       color: white;
     }
     .blue{
+      -webkit-print-color-adjust: exact !important;
       background-image: url(<?= base_url('assets/backend/img/report/blue.png') ?>);
       color: white;
     }
     .yellow{
+      -webkit-print-color-adjust: exact !important;
       background-image: url(<?= base_url('assets/backend/img/report/yellow.png') ?>);
       color: white;
     }
     .red{
+      -webkit-print-color-adjust: exact !important;
       background-image: url(<?= base_url('assets/backend/img/report/red.png') ?>);
       color: white;
     }
     .black{
+      -webkit-print-color-adjust: exact !important;
       background-image: url(<?= base_url('assets/backend/img/report/black.png') ?>);
       color: white;
     }
