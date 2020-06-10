@@ -25,6 +25,23 @@ class B_aqmispu extends CI_Controller {
         $this->temp_backend->load('backend/theme/template_v', 'backend/aqmispu/aqmispu', $data);
     }
 
+    public function idstasiun_monitoring($idstasiun = NULL)
+    {
+
+        $data['idstasiun']      = $this->b_aqms_m->get_stasiun_mtr($idstasiun);
+        $data['idstasiunselect']= $this->b_aqms_m->get_stasiun_mtr();
+        $data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
+        $data['aqmispu']        = $this->b_aqms_m->get_aqmdatas();
+        $data['controllers']    = "dashboard";
+        $data['title_header']   = "aqm ispu";
+
+        if(empty($data['idstasiun'])){
+            show_404();
+        }
+
+        $this->temp_backend->load('backend/theme/template_v', 'backend/aqmispu/monitoring', $data);
+    }
+
 	public function get_ajax() {
 
         $idstasiun = @$_GET['id_stasiun'];
@@ -48,7 +65,6 @@ class B_aqmispu extends CI_Controller {
             $row[] = $aqms->id_stasiun;
             $row[] = date('d-m-Y H:i', strtotime($aqms->waktu));
             $row[] = $aqms->pm10;
-            $row[] = $aqms->pm25;
             $row[] = $aqms->so2;
             $row[] = $aqms->co;
             $row[] = $aqms->o3;

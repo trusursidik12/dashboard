@@ -25,10 +25,17 @@ class B_acc_login extends CI_Controller {
 				);
 				$this->session->set_userdata($params);
 
-				echo "<script>
-					alert('Selamat, Anda berhasil login');
-					window.location='".site_url('dashboard')."';
-					</script>";
+					if($this->fungsi->user_login()->usr_cty_id == '8'){
+						echo "<script>
+						alert('Selamat, Anda berhasil login');
+						window.location='".site_url('monitoring')."';
+						</script>";
+					}else{
+						echo "<script>
+						alert('Selamat, Anda berhasil login');
+						window.location='".site_url('dashboard')."';
+						</script>";
+					}
 
 				}else{
 					echo "<script>

@@ -1,4 +1,4 @@
-<?php if($idstasiun['cty_id'] != $this->fungsi->user_login()->usr_cty_id ) : ?>
+<?php if($this->fungsi->user_login()->usr_cty_id != '8') : ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -49,7 +49,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= site_url('dashboard') ?>">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="<?= site_url('monitoring') ?>">Monitoring</a></li>
             <li class="breadcrumb-item active"><?= $idstasiun['id_stasiun'] ?></li>
           </ol>
         </div>
@@ -66,10 +66,10 @@
             <h3 class="card-title">
                   <div class="form-group">
                     <select class="form-control" name="forma" onchange="location = this.value;">
-                      <?php foreach($idstasiunloop as $stasiun) : ?>
-                        <?php foreach($aqmdata as $data) : ?>
+                      <?php foreach($idstasiunselect as $stasiun) : ?>
+                        <?php foreach($aqmispu as $data) : ?>
                           <?php if($stasiun['id_stasiun'] == $data['id_stasiun']) : ?>
-                            <option value="<?= site_url('aqmdata/'.$stasiun['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $stasiun['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $stasiun['id_stasiun'] ?></option>
+                            <option value="<?= site_url('monitoring/aqmispu/'.$stasiun['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $stasiun['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $stasiun['id_stasiun'] ?></option>
                           <?php endif ?>
                         <?php endforeach ?>
                       <?php endforeach ?>
@@ -98,35 +98,17 @@
               </div>
             </div>
 
-            <table id="aqmdata" class="table table-bordered table-striped text-center" width="100%">
+            <table id="aqmispu" class="table table-bordered table-striped text-center" width="100%">
               <thead>
                 <tr class="text-center">
                   <th>NO</th>
                   <th>ID STASIUN</th>
                   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WAKTU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                  <?php foreach($aqmdata as $data) : ?>
-                    <?php if($data['id_stasiun'] == $idstasiun['id_stasiun']) : ?>
-                      <?= $data['pm10'] != null  && $data['pm10'] != '-1' ? '<th>PM10</th>' : '' ?>
-                      <?= $data['pm25'] != null  && $data['pm25'] != '-1' ? '<th>PM2.5</th>' : '' ?>
-                      <?= $data['so2'] != null  && $data['so2'] != '-1' ? '<th>SO2</th>' : '' ?>
-                      <?= $data['co'] != null  && $data['co'] != '-1' ? '<th>CO</th>' : '' ?>
-                      <?= $data['o3'] != null  && $data['o3'] != '-1' ? '<th>O3</th>' : '' ?>
-                      <?= $data['no2'] != null && $data['no2'] != '-1' ? '<th>NO2</th>' : '' ?>
-                      <?= $data['hc'] != null && $data['hc'] != '-1' ? '<th>HC</th>' : '' ?>
-                      <?= $data['voc'] != null && $data['voc'] != '-1' ? '<th>VOC</th>' : '' ?>
-                      <?= $data['nh3'] != null  && $data['nh3'] != '-1' ? '<th>NH3</th>' : '' ?>
-                      <?= $data['no'] != null  && $data['no'] != '-1' ? '<th>NO</th>' : '' ?>
-                    <?php endif ?>
-                  <?php endforeach ?>
-                  <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' ? '<th>H2S</th>' : '' ?>
-                  <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' ? '<th>CS2</th>' : '' ?>
-                  <th><?= $idstasiun['id_stasiun'] == 'CEMS_RUM' ? 'VELOCITY' : 'WS' ?></th>
-                  <th>WD</th>
-                  <th>HUMIDITY</th>
-                  <th>TEMPERATURE</th>
-                  <th>PRESSURE</th>
-                  <th>SR</th>
-                  <th>RAIN INTENSITY</th>
+                  <th>PM10</th>
+                  <th>SO2</th>
+                  <th>CO</th>
+                  <th>O3</th>
+                  <th>NO2</th>
                 </tr>
               </thead>
             <tbody>
@@ -150,7 +132,7 @@
 <script>
     $(document).ready(function () {
       
-        var dataTable =  $('#aqmdata').DataTable( {
+        var dataTable =  $('#aqmispu').DataTable( {
            language: {
             searchPlaceholder: "Input Disini .."
         },
@@ -161,14 +143,13 @@
       },
       "lengthMenu": [ [10, 25, 50, 100, 200, 300, 500, -1], [10, 25, 50, 100, 200, 300, 500, "All"] ],
       "ajax": {
-        "url": "<?= site_url() ?>ajax/aqmdata?id_stasiun=<?= $idstasiun['id_stasiun'] ?>",
+        "url": "<?= site_url() ?>ajax/aqmispu?id_stasiun=<?= $idstasiun['id_stasiun'] ?>",
         "type": "POST",
         "data":function(data) {
           data.from = $('#datepicker1').val();
           data.to = $('#datepicker2').val();
         },
       },
-      dom: "lBfrtip",
     "order": [ [2, "desc"]],
     } );
     

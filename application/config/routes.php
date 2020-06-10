@@ -1,13 +1,31 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+//laporan harian
+$route['laporan/data/hari']				= 'b_harian/idstasiun_data';
+$route['laporan/ispu/hari']				= 'b_harian/idstasiun_ispu';
+
+//laporan bulanan
+$route['laporan/data/bulan']			= 'b_bulanan/idstasiun_data';
+$route['laporan/ispu/bulan']			= 'b_bulanan/idstasiun_ispu';
+
+//laporan tahunan
+$route['laporan/data/tahun']			= 'b_tahunan/idstasiun_data';
+$route['laporan/ispu/tahun']			= 'b_tahunan/idstasiun_ispu';
+
+
 // backend
 $route['aqmispu/(:any)']				= 'b_aqmispu/idstasiun/$1';
 $route['ajax/aqmispu']					= 'b_aqmispu/get_ajax';
 
+//monitoring
+$route['monitoring/aqmdata/(:any)']		= 'b_aqmdata/idstasiun_monitoring/$1';
+$route['monitoring/aqmispu/(:any)']		= 'b_aqmispu/idstasiun_monitoring/$1';
+
 $route['aqmdata/(:any)']				= 'b_aqmdata/idstasiun/$1';
 $route['ajax/aqmdata']					= 'b_aqmdata/get_ajax';
 
+$route['monitoring']					= 'b_dashboard/monitoring';
 $route['wellcome']						= 'b_dashboard/wellcome';
 $route['dashboard']						= 'b_dashboard/index';
 

@@ -1,3 +1,41 @@
+<?php if($idstasiun['cty_id'] != $this->fungsi->user_login()->usr_cty_id ) : ?>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-sm">
+            <!-- general form elements -->
+            <div class="card card-light">
+              <div class="row p-3">
+                <div class="col-sm-12 p-3">
+                <h3 class="card-title">404 Page Not Found</h3>
+                <hr style="margin-top: 30px; margin-bottom: 0px;">
+              </div>
+                <div class="col-sm-12 p-3">
+                <h3 class="card-title">The page you requested was not found. <a href="javascript:history.go(-1)" type="button" class="btn btn-primary btn-sm"><i class="fa fa-backward"></i>Back</a></h3>
+              </div>
+              </div>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+<?php else : ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -67,7 +105,6 @@
                   <th>ID STASIUN</th>
                   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WAKTU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                   <th>PM10</th>
-                  <th>PM2.5</th>
                   <th>SO2</th>
                   <th>CO</th>
                   <th>O3</th>
@@ -90,15 +127,7 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<?php 
-  $image = ''.base_url('assets/backend/img/dashboard/kb.png').'';
-
-  // Read image path, convert to base64 encoding
-  $type = pathinfo($image, PATHINFO_EXTENSION);
-  $data = file_get_contents($image);
-
-  $imgData = base64_encode($data);
-?>
+<?php endif ?>
 
 <script>
     $(document).ready(function () {
@@ -109,6 +138,9 @@
         },
       processing:true,
       serverSide: true,
+      "language": {
+        "infoFiltered": ""
+      },
       "lengthMenu": [ [10, 25, 50, 100, 200, 300, 500, -1], [10, 25, 50, 100, 200, 300, 500, "All"] ],
       "ajax": {
         "url": "<?= site_url() ?>ajax/aqmispu?id_stasiun=<?= $idstasiun['id_stasiun'] ?>",
@@ -118,80 +150,6 @@
           data.to = $('#datepicker2').val();
         },
       },
-      dom: "lBfrtip",
-      buttons: [
-            'colvis',
-            // {
-            //     extend: 'copyHtml5',
-            //     exportOptions: {
-            //         columns: [ 0, ':visible' ]
-            //     },
-            //     customize: function ( doc ) {
-            //         doc.content.splice( 1, 0, {
-            //             margin: [ 0, 0, 0, 12 ],
-            //             alignment: 'center',
-            //             image: 'data:image/png;base64,'+logo,
-            //             width: 480,
-            //             height: 80
-            //         } );
-            //     }
-            // },
-            // {
-            //     extend: 'excelHtml5',
-            //     title: '<?= $idstasiun['nama'] ?>',
-            //     exportOptions: {
-            //         columns: ':visible'
-            //     },
-            //     customize: function ( doc ) {
-            //         doc.content.splice( 1, 0, {
-            //             margin: [ 0, 0, 0, 12 ],
-            //             alignment: 'center',
-            //             image: 'data:image/png;base64,'+logo,
-            //             width: 480,
-            //             height: 80
-            //         } );
-            //     }
-            // },
-            {
-                extend: 'pdfHtml5',
-                title: '<?= $idstasiun['nama'] ?> IPSU',
-                orientation: 'landscape',
-                exportOptions: {
-                    columns: ':visible',
-                },
-                customize: function ( doc ) {
-                  doc.styles.tableBodyEven.alignment = 'center';
-                  doc.styles.tableBodyOdd.alignment = 'center';
-                    doc.content.splice( 1, 0, {
-                        margin: [ 0, 0, 0, 12 ],
-                        alignment: 'center',
-                        image: 'data:image/png;base64,<?= $imgData ?>',
-                        width: 480,
-                        height: 80
-                    } );
-                }
-            },
-            // {
-            //     extend: 'print',
-            //     title: '<?= $idstasiun['nama'] ?>',
-            //     exportOptions: {
-            //         columns: ':visible'
-            //     },
-            //     customize: function ( doc ) {
-            //         doc.content.splice( 1, 0, {
-            //             margin: [ 0, 0, 0, 12 ],
-            //             alignment: 'center',
-            //             image: 'data:image/png;base64,'+logo,
-            //             width: 480,
-            //             height: 80
-            //         } );
-            //     }
-            // }
-        ],
-      // buttons: [
-      //       'colvis'
-      //   ],
-    // buttons: ['excel'],
     "order": [ [2, "desc"]],
     } );
     

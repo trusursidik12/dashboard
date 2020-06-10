@@ -34,12 +34,6 @@ class B_acc_levels_m extends CI_Model {
 		return $query->row_array();
 	}
 
-	// public function get_users(){
-	// 	$this->db->order_by('usr_id', 'ASC');
-	// 	$query = $this->db->get('acc_users');
-	// 	return $query->result_array();
-	// }
-
 	public function add_levels(){
 		$slug = url_title($this->input->post('lvl_name'));
 		$data = array(

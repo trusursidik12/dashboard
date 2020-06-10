@@ -28,4 +28,15 @@ class B_dashboard extends CI_Controller {
 
 		$this->temp_backend->load('backend/theme/template_v', 'backend/dashboard/wellcome', $data);
 	}
+
+	public function monitoring()
+	{
+		$data['title_header'] 	= "Dashboard";
+		$data['controllers'] 	= "dashboard";
+		$data['aqmstasiunmtr']	= $this->b_aqms_m->get_stasiun_mtr();
+		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
+		$data['aqmdata']  		= $this->b_aqms_m->get_aqmdata();
+
+		$this->temp_backend->load('backend/theme/template_v', 'backend/dashboard/monitoring', $data);
+	}
 }

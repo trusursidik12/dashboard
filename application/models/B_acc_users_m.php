@@ -54,10 +54,17 @@ class B_acc_users_m extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function get_cities(){
+		$this->db->order_by('cty_id', 'ASC');
+		$query = $this->db->get('acc_cities');
+		return $query->result_array();
+	}
+
 	public function add_users($photo){
 		$slug = url_title($this->input->post('usr_fullname'));
 		$data = array(
 			'usr_lvl_id' 				=> $this->input->post('usr_lvl_id'),
+			'usr_cty_id' 				=> $this->input->post('usr_cty_id'),
 			'usr_fullname' 				=> $this->input->post('usr_fullname'),
 			'usr_slug' 					=> strtolower($slug),
 			'usr_email' 				=> $this->input->post('usr_email'),
@@ -75,6 +82,7 @@ class B_acc_users_m extends CI_Model {
 		$slug = url_title($this->input->post('usr_fullname'));		
 		$data = array(
 			'usr_lvl_id' 				=> $this->input->post('usr_lvl_id'),
+			'usr_cty_id' 				=> $this->input->post('usr_cty_id'),
 			'usr_fullname' 				=> $this->input->post('usr_fullname'),
 			'usr_slug' 					=> strtolower($slug),
 			'usr_email' 				=> $this->input->post('usr_email'),

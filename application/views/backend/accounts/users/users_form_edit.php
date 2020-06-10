@@ -46,6 +46,17 @@
                   </select>
                 </div>
                 <div class="form-group">
+                  <select name="usr_cty_id" class="form-control select2 select2-danger" data-dropdown-css-class="select2-danger" style="width: 100%;">
+                    <?php foreach ($cities as $city): ?>
+                      <?php if ($city['cty_id'] == $users['usr_cty_id']): ?>
+                        <option value="<?= $city['cty_id']; ?>" selected="selected"><?= $city['cty_name']; ?></option>
+                      <?php else : ?>
+                        <option value="<?= $city['cty_id']; ?>"><?= $city['cty_name']; ?></option>
+                      <?php endif ?>
+                    <?php endforeach ?>
+                  </select>
+                </div>
+                <div class="form-group">
                   <input type="Hidden" name="usr_id" value="<?= $users['usr_id'] ?>">
                   <input type="Text" name="usr_fullname" value="<?= $users['usr_fullname'] ?>" class="form-control <?= form_error('usr_fullname') == TRUE ? 'is-invalid' : ''; ?>" placeholder="Enter Full Name *">
                   <a style="color: red;"><?= form_error('usr_fullname') ?></a>

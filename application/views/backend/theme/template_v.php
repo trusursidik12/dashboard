@@ -23,7 +23,7 @@
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/daterangepicker/daterangepicker.css">
+  <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/daterangepicker/daterangepicker.css"> -->
   <!-- summernote -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/backend/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
@@ -31,11 +31,38 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= base_url('assets/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.css') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/backend/plugins/datatables-buttons/css/buttons.dataTables.min.css') ?>">
+  <style type="text/css" media="screen"></style>
+  <style type="text/css" media="print">
+    @page {
+      size: A3 landscape;
+   margin: 0.5cm;
+}
+  </style>
   <style type="text/css">
     .hr{
       border: 1px solid red;
       margin-top: 0px;
       margin-bottom: 0px;
+    }
+    .green{
+      background-image: url(<?= base_url('assets/backend/img/report/green.png') ?>);
+      color: white;
+    }
+    .blue{
+      background-image: url(<?= base_url('assets/backend/img/report/blue.png') ?>);
+      color: white;
+    }
+    .yellow{
+      background-image: url(<?= base_url('assets/backend/img/report/yellow.png') ?>);
+      color: white;
+    }
+    .red{
+      background-image: url(<?= base_url('assets/backend/img/report/red.png') ?>);
+      color: white;
+    }
+    .black{
+      background-image: url(<?= base_url('assets/backend/img/report/black.png') ?>);
+      color: white;
     }
   </style>
 
@@ -50,8 +77,11 @@
   <script src="<?= base_url('assets/backend/plugins/datatables-buttons/js/vfs_fonts.js') ?>"></script>
   <script src="<?= base_url('assets/backend/plugins/datatables-buttons/js/buttons.html5.min.js') ?>"></script>
   <script src="<?= base_url() ?>assets/backend/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<script src="<?= base_url() ?>assets/backend/plugins/datatables-buttons/js/buttons.flash.min.js"></script>
-<script src="<?= base_url() ?>assets/backend/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="<?= base_url() ?>assets/backend/plugins/datatables-buttons/js/buttons.flash.min.js"></script>
+  <script src="<?= base_url() ?>assets/backend/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+
+  <script src="<?= base_url('assets/backend/plugins/chart/chart.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/backend/plugins/chart/utils.js'); ?>"></script>
   
 </head>
 <!-- sidebar-collapse (untuk hide)-->
@@ -95,7 +125,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?= site_url() ?>" class="brand-link">
+    <a href="<?= $this->fungsi->user_login()->usr_cty_id != '8' ? site_url() : site_url('monitoring') ?>" class="brand-link">
       <img src="<?=base_url('assets/backend/img/dashboard/logo.png')?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">ISPUMAP</span>
     </a>
@@ -116,68 +146,178 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- MENU -->
-          <li class="nav-item">
-            <a href="<?= site_url() ?>" class="nav-link <?= $this->uri->uri_string() == 'dashboard' ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Dashboard
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <?php foreach(array_slice($idstasiunloop, 0, 1) as $stasiunid) : ?>
-              <a href="<?= site_url('aqmdata/'.$stasiunid['id_stasiun']) ?>" class="nav-link <?= $this->uri->uri_string() == 'aqmdata/'.$stasiunid['id_stasiun'].'' ? 'active' : ''; ?>">
-            <?php endforeach ?>
-              <i class="nav-icon fas fa-database"></i>
-              <p>
-                Aqm Data
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <?php foreach(array_slice($idstasiunloop, 0, 1) as $stasiunid) : ?>
-              <a href="<?= site_url('aqmispu/'.$stasiunid['id_stasiun']) ?>" class="nav-link <?= $this->uri->uri_string() == 'aqmispu/'.$stasiunid['id_stasiun'].'' ? 'active' : ''; ?>">
-            <?php endforeach ?>
-              <i class="nav-icon fas fa-database"></i>
-              <p>
-                Aqm Ispu
-              </p>
-            </a>
-          </li>
-          <?php if($this->fungsi->user_login()->usr_lvl_id == '1') : ?>
-            <li class="nav-header">ADMINISTRATOR</li>
-            <li class="nav-item has-treeview
-            <?= $this->uri->uri_string() == 'accounts/users/list'
-            || $this->uri->uri_string() == 'accounts/users/add'
-            || $this->uri->uri_string() == 'accounts/levels/list'
-            || $this->uri->uri_string() == 'accounts/levels/add' ? 'menu-open' : ''; ?>">
-              <a href="#" class="nav-link
+          <?php if($this->fungsi->user_login()->usr_cty_id == '8') : ?>
+            <li class="nav-item">
+              <a href="<?= site_url('monitoring') ?>" class="nav-link <?= $this->uri->uri_string() == 'dashboard' ? 'active' : ''; ?>">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Dashboard
+                  <span class="right badge badge-danger">New</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <?php foreach(array_slice($idstasiunloop, 0, 1) as $stasiunid) : ?>
+                <a href="<?= site_url('monitoring/aqmdata/'.$stasiunid['id_stasiun']) ?>" class="nav-link <?= $this->uri->uri_string() == 'monitoring/aqmdata/'.$stasiunid['id_stasiun'].'' ? 'active' : ''; ?>">
+              <?php endforeach ?>
+                <i class="nav-icon fas fa-database"></i>
+                <p>
+                  Aqm Data
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <?php foreach(array_slice($idstasiunloop, 0, 1) as $stasiunid) : ?>
+                <a href="<?= site_url('monitoring/aqmispu/'.$stasiunid['id_stasiun']) ?>" class="nav-link <?= $this->uri->uri_string() == 'monitoring/aqmispu/'.$stasiunid['id_stasiun'].'' ? 'active' : ''; ?>">
+              <?php endforeach ?>
+                <i class="nav-icon fas fa-database"></i>
+                <p>
+                  Aqm Ispu
+                </p>
+              </a>
+            </li>
+            <?php if($this->fungsi->user_login()->usr_lvl_id == '1') : ?>
+              <li class="nav-header">ADMINISTRATOR</li>
+              <li class="nav-item has-treeview
               <?= $this->uri->uri_string() == 'accounts/users/list'
               || $this->uri->uri_string() == 'accounts/users/add'
               || $this->uri->uri_string() == 'accounts/levels/list'
-              || $this->uri->uri_string() == 'accounts/levels/add' ? 'active' : ''; ?>">
-                <i class="nav-icon fas fa-user-circle"></i>
+              || $this->uri->uri_string() == 'accounts/levels/add' ? 'menu-open' : ''; ?>">
+                <a href="#" class="nav-link
+                <?= $this->uri->uri_string() == 'accounts/users/list'
+                || $this->uri->uri_string() == 'accounts/users/add'
+                || $this->uri->uri_string() == 'accounts/levels/list'
+                || $this->uri->uri_string() == 'accounts/levels/add' ? 'active' : ''; ?>">
+                  <i class="nav-icon fas fa-user-circle"></i>
+                  <p>
+                    Accounts
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="<?= site_url('accounts/levels/list'); ?>" class="nav-link <?= $this->uri->uri_string() == 'accounts/levels/list' ? 'active' : ''; ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Level List</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="<?= site_url('accounts/users/list'); ?>" class="nav-link <?= $this->uri->uri_string() == 'accounts/users/list' ? 'active' : ''; ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Users List</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            <?php endif ?>
+          <?php else : ?>
+            <li class="nav-item">
+              <a href="<?= site_url() ?>" class="nav-link <?= $this->uri->uri_string() == 'dashboard' ? 'active' : ''; ?>">
+                <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Accounts
+                  Dashboard
+                  <span class="right badge badge-danger">New</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <?php foreach(array_slice($idstasiunloop, 0, 1) as $stasiunid) : ?>
+                <a href="<?= site_url('aqmdata/'.$stasiunid['id_stasiun']) ?>" class="nav-link <?= $this->uri->uri_string() == 'aqmdata/'.$stasiunid['id_stasiun'].'' ? 'active' : ''; ?>">
+              <?php endforeach ?>
+                <i class="nav-icon fas fa-database"></i>
+                <p>
+                  <?php if($this->fungsi->user_login()->usr_cty_id != '10') : ?>
+                    Aqm Data
+                  <?php else : ?>
+                    Cams & Cems Data
+                  <?php endif ?>
+                </p>
+              </a>
+            </li>
+            <?php if($this->fungsi->user_login()->usr_cty_id != '10') : ?>
+              <li class="nav-item">
+                <?php foreach(array_slice($idstasiunloop, 0, 1) as $stasiunid) : ?>
+                  <a href="<?= site_url('aqmispu/'.$stasiunid['id_stasiun']) ?>" class="nav-link <?= $this->uri->uri_string() == 'aqmispu/'.$stasiunid['id_stasiun'].'' ? 'active' : ''; ?>">
+                <?php endforeach ?>
+                  <i class="nav-icon fas fa-database"></i>
+                  <p>
+                    Aqm Ispu
+                  </p>
+                </a>
+              </li>
+            <?php endif ?>
+            <li class="nav-item has-treeview
+            <?= $this->uri->uri_string() == 'laporan/data/hari'
+            || $this->uri->uri_string() == 'laporan/data/bulan'
+            || $this->uri->uri_string() == 'laporan/data/tahun' ? 'menu-open' : ''; ?>">
+              <a href="#" class="nav-link
+              <?= $this->uri->uri_string() == 'laporan/data/hari'
+              || $this->uri->uri_string() == 'laporan/data/bulan'
+              || $this->uri->uri_string() == 'laporan/data/tahun' ? 'active' : ''; ?>">
+                <i class="nav-icon fas fa-file-export"></i>
+                <p>
+                  Laporan Data
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="<?= site_url('accounts/levels/list'); ?>" class="nav-link <?= $this->uri->uri_string() == 'accounts/levels/list' ? 'active' : ''; ?>">
+                  <a href="<?= site_url('laporan/data/hari'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/data/hari' ? 'active' : ''; ?>">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Level List</p>
+                    <p>Hari</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="<?= site_url('accounts/users/list'); ?>" class="nav-link <?= $this->uri->uri_string() == 'accounts/users/list' ? 'active' : ''; ?>">
+                  <a href="<?= site_url('laporan/data/bulan'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/data/bulan' ? 'active' : ''; ?>">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Users List</p>
+                    <p>Bulan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= site_url('laporan/data/tahun'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/data/tahun' ? 'active' : ''; ?>">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Tahun</p>
                   </a>
                 </li>
               </ul>
             </li>
+            <?php if($this->fungsi->user_login()->usr_cty_id != '10') : ?>
+              <li class="nav-item has-treeview
+              <?= $this->uri->uri_string() == 'laporan/ispu/hari'
+              || $this->uri->uri_string() == 'laporan/ispu/bulan'
+              || $this->uri->uri_string() == 'laporan/ispu/tahun' ? 'menu-open' : ''; ?>">
+                <a href="#" class="nav-link
+                <?= $this->uri->uri_string() == 'laporan/ispu/hari'
+                || $this->uri->uri_string() == 'laporan/ispu/bulan'
+                || $this->uri->uri_string() == 'laporan/ispu/tahun' ? 'active' : ''; ?>">
+                  <i class="nav-icon fas fa-file-export"></i>
+                  <p>
+                    Laporan ISPU
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="<?= site_url('laporan/ispu/hari'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/ispu/hari' ? 'active' : ''; ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Hari</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="<?= site_url('laporan/ispu/bulan'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/ispu/bulan' ? 'active' : ''; ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Bulan</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="<?= site_url('laporan/ispu/tahun'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/ispu/tahun' ? 'active' : ''; ?>">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Tahun</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            <?php endif ?>
           <?php endif ?>
         </ul>
       </nav>
@@ -205,10 +345,22 @@
 <!-- ./wrapper -->
 
 <!-- daterangepicker -->
-<script src="<?= base_url() ?>assets/backend/plugins/daterangepicker/daterangepicker.js"></script>
+
 <!-- Bootstrap 4 -->
 <script src="<?= base_url() ?>assets/backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url() ?>assets/backend/dist/js/adminlte.js"></script>
+
+<script type="text/javascript">
+    function printContent(){
+      var restorepage = document.body.innerHTML;
+      var printcontent = document.getElementById('cetak').innerHTML;
+      document.body.innerHTML = printcontent;
+      window.print();
+      document.body.innerHTML = restorepage;
+      document.close();
+      document.location.reload(true);
+    }
+</script>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?php if($idstasiun['cty_id'] != $this->fungsi->user_login()->usr_cty_id ) : ?>
+<?php if($this->fungsi->user_login()->usr_cty_id != '8') : ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -49,7 +49,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= site_url('dashboard') ?>">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="<?= site_url('monitoring') ?>">Monitoring</a></li>
             <li class="breadcrumb-item active"><?= $idstasiun['id_stasiun'] ?></li>
           </ol>
         </div>
@@ -66,10 +66,10 @@
             <h3 class="card-title">
                   <div class="form-group">
                     <select class="form-control" name="forma" onchange="location = this.value;">
-                      <?php foreach($idstasiunloop as $stasiun) : ?>
+                      <?php foreach($idstasiunselect as $stasiun) : ?>
                         <?php foreach($aqmdata as $data) : ?>
                           <?php if($stasiun['id_stasiun'] == $data['id_stasiun']) : ?>
-                            <option value="<?= site_url('aqmdata/'.$stasiun['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $stasiun['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $stasiun['id_stasiun'] ?></option>
+                            <option value="<?= site_url('monitoring/aqmdata/'.$stasiun['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $stasiun['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $stasiun['id_stasiun'] ?></option>
                           <?php endif ?>
                         <?php endforeach ?>
                       <?php endforeach ?>
