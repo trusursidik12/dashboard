@@ -32,7 +32,7 @@ class B_aqmispu extends CI_Controller {
         $data['idstasiunselect']= $this->b_aqms_m->get_stasiun_mtr();
         $data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
         $data['aqmispu']        = $this->b_aqms_m->get_aqmdatas();
-        $data['controllers']    = "dashboard";
+        $data['controllers']    = "Monitoring";
         $data['title_header']   = "aqm ispu";
 
         if(empty($data['idstasiun'])){

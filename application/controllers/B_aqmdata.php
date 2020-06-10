@@ -32,7 +32,7 @@ class B_aqmdata extends CI_Controller {
         $data['idstasiunselect']= $this->b_aqms_m->get_stasiun_mtr();
         $data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
         $data['aqmdata']        = $this->b_aqms_m->get_aqmdatas();
-        $data['controllers']    = "dashboard";
+        $data['controllers']    = "Monitoring";
         $data['title_header']   = "aqm data";
 
         if(empty($data['idstasiun'])){

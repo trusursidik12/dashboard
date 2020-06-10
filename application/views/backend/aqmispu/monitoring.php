@@ -44,7 +44,7 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <h3 class="card-title">
-              <a href="<?= site_url() ?>" ><button type="button" class="btn btn-block btn-primary"><i class="fas fa-th"></i> <?= $controllers; ?></button></a>
+              <a href="<?= site_url('monitoring') ?>" ><button type="button" class="btn btn-block btn-primary"><i class="fas fa-th"></i> <?= $controllers; ?></button></a>
             </h3>
         </div>
         <div class="col-sm-6">
