@@ -150,6 +150,7 @@
           data.to = $('#datepicker2').val();
         },
       },
+      dom: "lBfrtip",
     "order": [ [2, "desc"]],
     } );
     
