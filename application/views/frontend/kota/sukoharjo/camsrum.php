@@ -9,13 +9,13 @@
       <div class="col-6">
         <div class="card p-3 border bg-col">
           <h5><b>H2S</b></h5>
-          <h1 class="text-center"><b><?= $rum['h2s'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($rum['h2s'] / 1500, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h1>
+          <h2 class="text-center"><b><?= $rum['h2s'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($rum['h2s'] / 1500, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h2>
         </div>
       </div>
       <div class="col-6">
         <div class="card p-3 border bg-col">
           <h5><b>CS2</b></h5>
-          <h1 class="text-center"><b><?= $rum['cs2'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($rum['cs2'] / 3130, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h1>
+          <h2 class="text-center"><b><?= $rum['cs2'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($rum['cs2'] / 3130, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h2>
         </div>
       </div>
       <div class="col-12">

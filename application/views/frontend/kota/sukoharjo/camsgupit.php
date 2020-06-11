@@ -1,5 +1,5 @@
 <?php foreach($aqmdatagupit as $gupit) : ?>
-  <hr style="border: 1px solid; margin-top: -10px;">
+  <hr style="border: 1px solid; margin-top: 10px; margin-bottom: 50px;">
   <div class="row">
     
     <div class="col-12">
@@ -10,13 +10,13 @@
     <div class="col-6">
       <div class="card p-3 border bg-col">
         <h5><b>H2S</b></h5>
-        <h1 class="text-center"><b><?= $gupit['h2s'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($gupit['h2s'] / 1500, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h1>
+        <h2 class="text-center"><b><?= $gupit['h2s'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($gupit['h2s'] / 1500, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h2>
       </div>
     </div>
     <div class="col-6">
       <div class="card p-3 border bg-col">
         <h5><b>CS2</b></h5>
-        <h1 class="text-center"><b><?= $gupit['cs2'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($gupit['cs2'] / 3130, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h1>
+        <h2 class="text-center"><b><?= $gupit['cs2'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($gupit['cs2'] / 3130, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h2>
       </div>
     </div>
     <div class="col-12">
