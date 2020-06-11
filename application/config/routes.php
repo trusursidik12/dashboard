@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+//frontend indoor
+$route['indoor/sukoharjo']				= 'b_sukoharjo/index';
+
+
 //laporan harian
 $route['laporan/data/hari']				= 'b_harian/idstasiun_data';
 $route['laporan/ispu/hari']				= 'b_harian/idstasiun_ispu';
