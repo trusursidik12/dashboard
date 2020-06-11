@@ -4,7 +4,7 @@
     
     <div class="col-12">
       <div class="card p-1 border text-center bg-col">
-        <h5><b>STASIUN CAMS PLESAN</b></h5>
+        <h5><b>STASIUN CAMS PLESAN (<?= date('d-m-Y H:i', strtotime($plesan['waktu'])) ?>)</b></h5>
       </div>
     </div>
     <div class="col-6">

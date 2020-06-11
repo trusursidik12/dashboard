@@ -3,7 +3,7 @@
 
     <div class="col-12">
       <div class="card p-1 border text-center bg-col">
-        <h5><b>STASIUN CEMS RUM</b></h5>
+        <h5><b>STASIUN CEMS RUM (<?= date('d-m-Y H:i', strtotime($cemsrum['waktu'])) ?>)</b></h5>
       </div>
     </div>
 
