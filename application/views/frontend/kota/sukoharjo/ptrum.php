@@ -3,7 +3,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="bg-col">
-              <div class="card-body bg-col" style="margin-top: -20px">
+              <div class="card-body bg-col" style="margin-top: -15px">
                 <!-- Aqms -->
                 <div class="row d-flex align-items-stretch text-light">
 
