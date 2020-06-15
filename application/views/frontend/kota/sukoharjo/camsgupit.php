@@ -8,14 +8,14 @@
     </div>
     <div class="col-6">
       <div class="card p-3 border bg-col">
-        <h5><b>H2S</b></h5>
-        <h5 class="text-center"><b><?= $gupit['h2s'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($gupit['h2s'] / 1500, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h5>
+        <h6><b>H2S</b></h6>
+        <h6 class="text-center"><b><?= $gupit['h2s'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($gupit['h2s'] / 1500, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h6>
       </div>
     </div>
     <div class="col-6">
       <div class="card p-3 border bg-col">
-        <h5><b>CS2</b></h5>
-        <h5 class="text-center"><b><?= $gupit['cs2'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($gupit['cs2'] / 3130, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h5>
+        <h6><b>CS2</b></h6>
+        <h6 class="text-center"><b><?= $gupit['cs2'].'<a style="font-size: 14px;">[μg]</a>' ?> | <?= round($gupit['cs2'] / 3130, 3).'<a style="font-size: 14px;">[ppm]</a>' ?></b></h6>
       </div>
     </div>
     <div class="col-12">
