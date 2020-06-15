@@ -2,12 +2,8 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <div class="card bg-col">
-              <div class="card-header p-2">
-                <ul class="nav nav-pills">
-                </ul>
-              </div><!-- /.card-header -->
-              <div class="card-body bg-col" style="margin-top: -40px">
+            <div class="bg-col">
+              <div class="card-body bg-col" style="margin-top: -20px">
                 <!-- Aqms -->
                 <div class="row d-flex align-items-stretch text-light">
 
