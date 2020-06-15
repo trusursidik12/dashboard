@@ -1,6 +1,5 @@
 <?php foreach($aqmdatagupit as $gupit) : ?>
-  <hr style="border: 1px solid; margin-top: 10px; margin-bottom: 50px;">
-  <div class="row">
+  <div class="row" style="margin-top: -20px;">
     
     <div class="col-12">
       <div class="card p-1 border text-center bg-col">
