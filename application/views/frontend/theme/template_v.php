@@ -11,6 +11,9 @@
     .bg-col{
       background-color: #333344;
     }
+    body {
+      overflow: hidden; /* Hide scrollbars */
+    }
   </style>
   
 </head>
