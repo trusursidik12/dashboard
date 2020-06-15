@@ -7,7 +7,7 @@
                 <ul class="nav nav-pills">
                 </ul>
               </div><!-- /.card-header -->
-              <div class="card-body bg-col" style="margin-top: 30px">
+              <div class="card-body bg-col" style="margin-top: -40px">
                 <!-- Aqms -->
                 <div class="row d-flex align-items-stretch text-light">
 
