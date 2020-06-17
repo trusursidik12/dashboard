@@ -12,7 +12,8 @@ class F_cilegon extends CI_Controller {
 		$data['aqmispuciwandan']  	= $this->f_cilegon_m->get_aqmispu_ciwandan();
 		$data['weatherciwandan']  	= $this->f_cilegon_m->get_weather_ciwandan();
 		$data['aqmispumerak']  		= $this->f_cilegon_m->get_aqmispu_merak();
-		$data['weathermerak']  	    = $this->f_cilegon_m->get_weather_merak();
+        $data['weathermerak']  	    = $this->f_cilegon_m->get_weather_merak();
+        $data['title_header']   	= "DLH CIlegon";
 
 		$this->temp_frontend->load('frontend/theme/template_v', 'frontend/kota/cilegon/cilegon', $data);
 	}
@@ -43,5 +44,21 @@ class F_cilegon extends CI_Controller {
         $data['weathermerak']  	    = $this->f_cilegon_m->get_weather_merak();
 
         $this->load->view('frontend/kota/cilegon/merak', $data);
+    }
+
+    public function cilegonkiec()
+	{
+		$data['aqmispukiec']  		= $this->f_cilegon_m->get_aqmispu_kiec();
+        $data['weatherkiec']  		= $this->f_cilegon_m->get_weather_kiec();
+        $data['title_header']   	= "Kiec";
+
+		$this->temp_frontend->load('frontend/theme/template_v', 'frontend/kota/cilegon/kiec/cilegonkiec', $data);
+    }
+    
+    function kiec(){
+        $data['aqmispukiec']  		= $this->f_cilegon_m->get_aqmispu_kiec();
+		$data['weatherkiec']  		= $this->f_cilegon_m->get_weather_kiec();
+
+        $this->load->view('frontend/kota/cilegon/kiec/kiec', $data);
     }
 }

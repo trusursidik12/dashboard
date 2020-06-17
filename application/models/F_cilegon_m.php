@@ -67,4 +67,21 @@ class F_cilegon_m extends CI_Model {
     return $query->result_array();
   }
 
+  //KIEC
+  public function get_aqmispu_kiec(){
+    $this->db->where('id_stasiun', 'KIEC');
+    $this->db->order_by('id', 'DESC');
+    $this->db->limit('1');
+    $query = $this->db->get('aqm_ispu');
+    return $query->result_array();
+  }
+
+  public function get_weather_kiec(){
+    $this->db->where('id_stasiun', 'KIEC');
+    $this->db->order_by('id', 'DESC');
+    $this->db->limit('1');
+    $query = $this->db->get('aqm_data');
+    return $query->result_array();
+  }
+
 }

@@ -9,6 +9,7 @@ class F_sukoharjo extends CI_Controller {
 		$data['aqmdatagupit']  			= $this->f_sukoharjo_m->get_aqmdata_gupit();
 		$data['aqmdataplesan']  		= $this->f_sukoharjo_m->get_aqmdata_plesan();
 		$data['aqmdatacemsrum']  		= $this->f_sukoharjo_m->get_aqmdata_cems_rum();
+		$data['title_header']   		= "Sukoharjo";
 
 		$this->temp_frontend->load('frontend/theme/template_v', 'frontend/kota/sukoharjo/ptrum', $data);
 	}

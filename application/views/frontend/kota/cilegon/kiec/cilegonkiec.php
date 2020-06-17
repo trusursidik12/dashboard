@@ -41,22 +41,10 @@
                     <!-- Aqms -->
                     <div class="row d-flex align-items-stretch text-light">
 
-                        <div class="col-sm-6 p-2 p-2" id="pci">
-                            <?php $this->view('frontend/kota/cilegon/pci') ?>
+                        <div class="col-sm-12 p-2 p-2" id="kiec">
+                            <?php $this->view('frontend/kota/cilegon/kiec/kiec') ?>
                         </div>
-
-                        <div class="col-sm-6 p-2 p-2" id="simpang">
-                            <?php $this->view('frontend/kota/cilegon/simpang') ?>
-                        </div>
-
-                        <div class="col-sm-6 p-2 p-2" id="ciwandan">
-                            <?php $this->view('frontend/kota/cilegon/ciwandan') ?>
-                        </div>
-
-                        <div class="col-sm-6 p-2 p-2" id="merak">
-                            <?php $this->view('frontend/kota/cilegon/merak') ?>
-                        </div>
-
+                        
                     </div>
                     <!-- /.Aqms -->
                 </div><!-- /.card-body -->
@@ -72,10 +60,7 @@
 
 <script type="text/javascript">
     function startTime() {
-    $('#pci').load('<?= site_url('indoor/cilegon/pci') ?>', function(){})
-    $('#simpang').load('<?= site_url('indoor/cilegon/simpang') ?>', function(){})
-    $('#ciwandan').load('<?= site_url('indoor/cilegon/ciwandan') ?>', function(){})
-    $('#merak').load('<?= site_url('indoor/cilegon/merak') ?>', function(){})
+    $('#kiec').load('<?= site_url('indoor/cilegon/kiec') ?>', function(){})
     var t = setTimeout(startTime, 600000);
     }
 </script>
