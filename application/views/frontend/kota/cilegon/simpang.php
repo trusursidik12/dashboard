@@ -1,7 +1,7 @@
 <div class="row" style="margin-top: -15px;">
     <div class="col-12">
       <div class="card p-1 border text-center bg-col">
-        <h6><b>SIMPANG TIGA (<?php foreach($aqmispusimpang as $datesimpang) : ?> <?= date('d-m-Y H:i', strtotime($datesimpang['waktu'])) ?> <?php endforeach ?>)</b></h6>
+        <h6><b>SIMPANG TIGA (<?php foreach($aqmispusimpang as $datesimpang) : ?> <?= date('d-m-Y', strtotime($datesimpang['waktu'])) ?> <?php endforeach ?>)</b></h6>
       </div>
     </div>
     <div class="col-10">

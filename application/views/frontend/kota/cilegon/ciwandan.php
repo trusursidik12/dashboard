@@ -1,7 +1,7 @@
 <div class="row" style="margin-top: -15px;">
     <div class="col-12">
       <div class="card p-1 border text-center bg-col">
-        <h6><b>CIWANDAN (<?php foreach($aqmispuciwandan as $dateciwandan) : ?> <?= date('d-m-Y H:i', strtotime($dateciwandan['waktu'])) ?> <?php endforeach ?>)</b></h6>
+        <h6><b>CIWANDAN (<?php foreach($aqmispuciwandan as $dateciwandan) : ?> <?= date('d-m-Y', strtotime($dateciwandan['waktu'])) ?> <?php endforeach ?>)</b></h6>
       </div>
     </div>
     <div class="col-10">

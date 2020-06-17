@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 //frontend indoor
 $route['indoor/sukoharjo']				= 'f_sukoharjo/index';
-$route['indoor/cilegon']				= 'f_cilegon/index';
+$route['indoor/dlhcilegon']				= 'f_cilegon/index';
 
 //frontend controller cilegon
 $route['indoor/cilegon/pci']			= 'f_cilegon/pci';

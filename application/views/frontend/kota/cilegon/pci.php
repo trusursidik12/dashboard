@@ -1,7 +1,7 @@
 <div class="row" style="margin-top: -15px;">
     <div class="col-12">
       <div class="card p-1 border text-center bg-col">
-        <h6><b>CILEGON PCI (<?php foreach($aqmispupci as $datepci) : ?> <?= date('d-m-Y H:i', strtotime($datepci['waktu'])) ?> <?php endforeach ?>)</b></h6>
+        <h6><b>CILEGON PCI (<?php foreach($aqmispupci as $datepci) : ?> <?= date('d-m-Y', strtotime($datepci['waktu'])) ?> <?php endforeach ?>)</b></h6>
       </div>
     </div>
     <div class="col-10">
