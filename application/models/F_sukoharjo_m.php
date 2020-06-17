@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class B_sukoharjo_m extends CI_Model {
+class F_sukoharjo_m extends CI_Model {
 
   public function get_aqmdata_rum(){
     $this->db->where('id_stasiun', 'SKH_RUM');

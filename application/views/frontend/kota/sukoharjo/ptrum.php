@@ -38,10 +38,10 @@
 
     <script type="text/javascript">
       function startTime() {
-        $('#cemsrum').load('<?= site_url('b_sukoharjo/cemsrum') ?>', function(){})
-        $('#camsrum').load('<?= site_url('b_sukoharjo/camsrum') ?>', function(){})
-        $('#camsgupit').load('<?= site_url('b_sukoharjo/camsgupit') ?>', function(){})
-        $('#camsplesan').load('<?= site_url('b_sukoharjo/camsplesan') ?>', function(){})
+        $('#cemsrum').load('<?= site_url('indoor/sukoharjo/cemsrum') ?>', function(){})
+        $('#camsrum').load('<?= site_url('indoor/sukoharjo/camsrum') ?>', function(){})
+        $('#camsgupit').load('<?= site_url('indoor/sukoharjo/camsgupit') ?>', function(){})
+        $('#camsplesan').load('<?= site_url('indoor/sukoharjo/camsplesan') ?>', function(){})
         var t = setTimeout(startTime, 500);
       }
     </script>

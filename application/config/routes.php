@@ -2,8 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 //frontend indoor
-$route['indoor/sukoharjo']				= 'b_sukoharjo/index';
+$route['indoor/sukoharjo']				= 'f_sukoharjo/index';
+$route['indoor/cilegon']				= 'f_cilegon/index';
 
+//frontend controller cilegon
+$route['indoor/cilegon/pci']			= 'f_cilegon/pci';
+$route['indoor/cilegon/simpang']		= 'f_cilegon/simpang';
+$route['indoor/cilegon/ciwandan']		= 'f_cilegon/ciwandan';
+$route['indoor/cilegon/merak']			= 'f_cilegon/merak';
+
+//frontend controller sukoharjo
+$route['indoor/sukoharjo/cemsrum']		= 'f_sukoharjo/cemsrum';
+$route['indoor/sukoharjo/camsrum']		= 'f_sukoharjo/camsrum';
+$route['indoor/sukoharjo/camsgupit']	= 'f_sukoharjo/camsgupit';
+$route['indoor/sukoharjo/camsplesan']	= 'f_sukoharjo/camsplesan';
 
 //laporan harian
 $route['laporan/data/hari']				= 'b_harian/idstasiun_data';

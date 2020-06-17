@@ -7,11 +7,14 @@
   
   <link rel="stylesheet" href="<?= base_url() ?>assets/backend/dist/css/adminlte.min.css">
 
+  <script src="<?= base_url('assets/backend/plugins/chart/chart.min.js'); ?>"></script>
+  <script src="<?= base_url('assets/backend/plugins/chart/utils.js'); ?>"></script>
+
   <style type="text/css">
     .bg-col{
       background-color: #333344;
     }
-    body {
+    abody {
       overflow: hidden; /* Hide scrollbars */
     }
   </style>
