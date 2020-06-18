@@ -31,6 +31,10 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= base_url('assets/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.css') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/backend/plugins/datatables-buttons/css/buttons.dataTables.min.css') ?>">
+
+  <!-- leaflet css -->
+  <link rel="stylesheet" href="<?= base_url() ?>assets/backend/leaflet/leaflet.css">
+
   <style type="text/css" media="screen"></style>
   <style type="text/css" media="print">
     @page {
@@ -89,6 +93,10 @@
 
   <script src="<?= base_url('assets/backend/plugins/chart/chart.min.js'); ?>"></script>
   <script src="<?= base_url('assets/backend/plugins/chart/utils.js'); ?>"></script>
+
+  <!-- leaflet js -->
+  <script src="<?= base_url() ?>assets/backend/leaflet/leaflet.js"></script>
+  
   
 </head>
 <!-- sidebar-collapse (untuk hide)-->

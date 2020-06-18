@@ -153,6 +153,8 @@
           <?php endforeach ?>
         <?php endforeach ?>
 
+        <div id="map" style="width: 100%; height: 400px;"></div>
+
       </div>
 
     <?php endif ?>
@@ -490,4 +492,26 @@
           }
       });
     });
+  </script>
+  <script>
+    var map = L.map('map').setView([-6.0004051,106.0433628], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    }).addTo(map);
+
+    L.marker([-6.0004051,106.0433628]).addTo(map)
+        .bindPopup('SIMPANG TIGA')
+        .openPopup();
+        
+    L.marker([-6.0337507,106.0814485]).addTo(map)
+    .bindPopup('CILEGON PCI')
+    .openPopup();
+
+    L.marker([-5.96142,105.9999458]).addTo(map)
+        .bindPopup('MERAK')
+        .openPopup();
+
+    L.marker([-6.036452,105.942915]).addTo(map)
+    .bindPopup('CIWANDAN')
+    .openPopup();
   </script>
