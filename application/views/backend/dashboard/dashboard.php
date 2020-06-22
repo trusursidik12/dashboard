@@ -160,8 +160,6 @@
         <?php endforeach ?>
       <?php endforeach ?>
 
-        <div id="map" style="width: 100%; height: 400px;"></div>
-
       <?php endif ?>
 
       <?php if($this->fungsi->user_login()->usr_cty_id == '3') : ?>
@@ -346,9 +344,9 @@
         <?php endforeach ?>
       </div>
 
-      <div id="map" style="width: 100%; height: 400px;"></div>
-
     <?php endif ?>
+
+    <div id="map" style="width: 100%; height: 400px;"></div>
 
     </div><!-- /.container-fluid -->
   </section>
@@ -767,7 +765,10 @@
     });
   </script>
   <script>
-    var map = L.map('map').setView([-6.0004051,106.0433628], 12);
+    <?php foreach($aqmstasiun as $location) : ?>
+      var map = L.map('map').setView([<?= $location['lat'] ?>,<?= $location['lon'] ?>], 12);
+    <?php break; ?>
+    <?php endforeach ?>
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     }).addTo(map);
