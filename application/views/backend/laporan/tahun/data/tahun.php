@@ -42,6 +42,11 @@
                           <option value="<?= $seletidstasiun['id_stasiun'] ?>"><?= $seletidstasiun['id_stasiun'] ?></option>
                         <?php endforeach ?>
                       <?php endif ?>
+                      <?php if($this->fungsi->user_login()->usr_cty_id == '3') : ?>
+                        <?php foreach($idstasiunkiec as $kiec) : ?>
+                          <option value="<?= $kiec['id_stasiun'] ?>"><?= $kiec['id_stasiun'] ?></option>
+                        <?php endforeach ?>
+                      <?php endif ?>
                     </select>
                   </div>
                   <div class="form-group">
@@ -63,7 +68,10 @@
                     <label for="fromdate">&emsp;PARAMETER : &nbsp;</label>
                     <select name="parameter" class="form-control" required>
                       <option value="" selected>-- Pilih Parameter --</option>
-                      <?php if($this->fungsi->user_login()->usr_cty_id == '3') : ?>
+                      <?php if($this->fungsi->user_login()->usr_cty_id == '10') : ?>
+                        <option value="h2s"> H2S </option>
+                        <option value="cs2"> CS2 </option>
+                      <?php else : ?>
                         <option value="pm10"> PM10 </option>
                         <option value="pm25"> PM25 </option>
                         <option value="so2"> SO2 </option>
@@ -71,9 +79,6 @@
                         <option value="o3"> O3 </option>
                         <option value="no2"> NO2 </option>
                         <option value="voc"> VOC </option>
-                      <?php else : ?>
-                        <option value="h2s"> H2S </option>
-                        <option value="cs2"> CS2 </option>
                       <?php endif ?>
                     </select>
                   </div>
@@ -121,6 +126,17 @@
                                     <?php break; ?>
                                   <?php endforeach ?>
                                 <?php endforeach ?>
+
+                                <?php if($this->fungsi->user_login()->usr_cty_id == '3') : ?>
+                                  <?php foreach($idstasiunkiec as $idkota) : ?>
+                                    <?php foreach($aqmdatayear as $kota) : ?>
+                                      <?php if($idkota['id_stasiun'] == $kota['id_stasiun']) : ?>
+                                        <?= $idkota['kota'] ?>
+                                      <?php endif ?>
+                                      <?php break; ?>
+                                    <?php endforeach ?>
+                                  <?php endforeach ?>
+                                <?php endif ?>
                               </td>
                             </tr>
                           </tbody>
@@ -140,6 +156,17 @@
                                   <?php break; ?>
                                 <?php endforeach ?>
                               <?php endforeach ?>
+
+                              <?php if($this->fungsi->user_login()->usr_cty_id == '3') : ?>
+                                <?php foreach($idstasiunkiec as $idkota) : ?>
+                                  <?php foreach($aqmdatayear as $kota) : ?>
+                                    <?php if($idkota['id_stasiun'] == $kota['id_stasiun']) : ?>
+                                      <?= $idkota['nama'] ?>
+                                    <?php endif ?>
+                                    <?php break; ?>
+                                  <?php endforeach ?>
+                                <?php endforeach ?>
+                              <?php endif ?>
                             </td>
                           </tr>
                           <tr>

@@ -14,6 +14,7 @@ class B_dashboard extends CI_Controller {
 		$data['title_header'] 	= "Dashboard";
 		$data['controllers'] 	= "dashboard";
 		$data['aqmstasiun']		= $this->b_aqms_m->get_stasiun();
+		$data['aqmstasiunkiec']	= $this->b_aqms_m->get_stasiun_kiec();
 		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
 		$data['aqmdata']  		= $this->b_aqms_m->get_aqmdata();
 

@@ -13,6 +13,24 @@ class B_aqmdata extends CI_Controller {
     {
 
         $data['idstasiun']      = $this->b_aqms_m->get_stasiunid($idstasiun);
+        $data['aqmstasiunkiec'] = $this->b_aqms_m->get_stasiun_kiec();
+        $data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
+        $data['aqmdata']        = $this->b_aqms_m->get_aqmdatas();
+        $data['controllers']    = "dashboard";
+        $data['title_header']   = "aqm data";
+
+        if(empty($data['idstasiun'])){
+            show_404();
+        }
+
+        $this->temp_backend->load('backend/theme/template_v', 'backend/aqmdata/aqmdata', $data);
+    }
+
+    public function idstasiun_kiec($idstasiun = NULL)
+    {
+
+        $data['idstasiun']      = $this->b_aqms_m->get_stasiunid_kiec($idstasiun);
+        $data['aqmstasiunkiec'] = $this->b_aqms_m->get_stasiun_kiec();
         $data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
         $data['aqmdata']        = $this->b_aqms_m->get_aqmdatas();
         $data['controllers']    = "dashboard";

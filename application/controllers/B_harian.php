@@ -20,6 +20,7 @@ class B_harian extends CI_Controller {
         }
 
         $data['idstasiun']      = $this->b_harian_m->get_stasiun();
+        $data['idstasiunkiec']  = $this->b_harian_m->get_stasiun_kiec();
         $data['idstasiunloop']  = $this->b_harian_m->get_stasiun();
         $data['aqmdata']        = $this->b_harian_m->get_aqmdata();
         $data['aqmdataday']     = $this->b_harian_m->get_aqmdata_day($id,$day);
@@ -99,11 +100,16 @@ class B_harian extends CI_Controller {
             $data['title_header']   = "Laporan Data Harian";
         }else{
             foreach($data['aqmdataday'] as $headertitle){
-                foreach($data['idstasiun'] as $stasiunname){
-                    if($headertitle['id_stasiun'] == $stasiunname['id_stasiun']) {
-                        $data['title_header']   = "Laporan Data Harian Stasiun ".$stasiunname['nama']." Kota ".$stasiunname['kota']." ".date('d-m-Y', strtotime($headertitle['waktu']));
+                    foreach($data['idstasiun'] as $stasiunname){
+                        if($headertitle['id_stasiun'] == $stasiunname['id_stasiun']) {
+                            $data['title_header']   = "Laporan Data Harian Stasiun ".$stasiunname['nama']." Kota ".$stasiunname['kota']." ".date('d-m-Y', strtotime($headertitle['waktu']));
+                        }
                     }
-                }
+                    foreach($data['idstasiunkiec'] as $stasiunname){
+                        if($headertitle['id_stasiun'] == $stasiunname['id_stasiun']) {
+                            $data['title_header']   = "Laporan Data Harian Stasiun ".$stasiunname['nama']." Kota ".$stasiunname['kota']." ".date('d-m-Y', strtotime($headertitle['waktu']));
+                        }
+                    }
             }
         }
 
@@ -121,6 +127,7 @@ class B_harian extends CI_Controller {
         }
         
         $data['idstasiun']      = $this->b_harian_m->get_stasiun();
+        $data['idstasiunkiec']  = $this->b_harian_m->get_stasiun_kiec();
         $data['idstasiunloop']  = $this->b_harian_m->get_stasiun();
         $data['aqmdata']        = $this->b_harian_m->get_aqmdata();
         $data['maxispu']        = $this->b_harian_m->get_max_aqmispu_day($id,$day);
@@ -131,6 +138,11 @@ class B_harian extends CI_Controller {
         }else{
             foreach($data['maxispu'] as $headertitle){
                 foreach($data['idstasiun'] as $stasiunname){
+                    if($headertitle['id_stasiun'] == $stasiunname['id_stasiun']) {
+                        $data['title_header']   = "Laporan ISPU Harian Stasiun ".$stasiunname['nama']." Kota ".$stasiunname['kota']." ".date('d-m-Y', strtotime($headertitle['waktu']));
+                    }
+                }
+                foreach($data['idstasiunkiec'] as $stasiunname){
                     if($headertitle['id_stasiun'] == $stasiunname['id_stasiun']) {
                         $data['title_header']   = "Laporan ISPU Harian Stasiun ".$stasiunname['nama']." Kota ".$stasiunname['kota']." ".date('d-m-Y', strtotime($headertitle['waktu']));
                     }

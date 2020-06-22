@@ -22,6 +22,7 @@ class B_bulanan extends CI_Controller {
         }
 
         $data['idstasiun']      = $this->b_bulanan_m->get_stasiun();
+        $data['idstasiunkiec']  = $this->b_bulanan_m->get_stasiun_kiec();
         $data['idstasiunloop']  = $this->b_bulanan_m->get_stasiun();
         $data['aqmdata']        = $this->b_bulanan_m->get_aqmdata();
         $data['aqmdatamont']    = $this->b_bulanan_m->get_aqmdata_month($id,$month,$parameter);
@@ -125,6 +126,11 @@ class B_bulanan extends CI_Controller {
                         $data['title_header']   = "Laporan Data Bulanan Stasiun ".$stasiunname['nama']." Kota ".$stasiunname['kota']." ".date('F-Y', strtotime($headertitle['waktu']));
                     }
                 }
+                foreach($data['idstasiunkiec'] as $stasiunname){
+                    if($headertitle['id_stasiun'] == $stasiunname['id_stasiun']) {
+                        $data['title_header']   = "Laporan Data Harian Stasiun ".$stasiunname['nama']." Kota ".$stasiunname['kota']." ".date('d-m-Y', strtotime($headertitle['waktu']));
+                    }
+                }
             }
         }
 
@@ -142,6 +148,7 @@ class B_bulanan extends CI_Controller {
         }
         
         $data['idstasiun']      = $this->b_bulanan_m->get_stasiun();
+        $data['idstasiunkiec']  = $this->b_bulanan_m->get_stasiun_kiec();
         $data['idstasiunloop']  = $this->b_bulanan_m->get_stasiun();
         $data['maxispu']        = $this->b_bulanan_m->get_max_aqmispu_month($id,$month);
         $data['controllers']    = "dashboard";
@@ -151,6 +158,11 @@ class B_bulanan extends CI_Controller {
         }else{
             foreach($data['maxispu'] as $headertitle){
                 foreach($data['idstasiun'] as $stasiunname){
+                    if($headertitle['id_stasiun'] == $stasiunname['id_stasiun']) {
+                        $data['title_header']   = "Laporan ISPU Bulanan Stasiun ".$stasiunname['nama']." Kota ".$stasiunname['kota']." ".date('m-Y', strtotime($headertitle['waktu']));
+                    }
+                }
+                foreach($data['idstasiunkiec'] as $stasiunname){
                     if($headertitle['id_stasiun'] == $stasiunname['id_stasiun']) {
                         $data['title_header']   = "Laporan ISPU Bulanan Stasiun ".$stasiunname['nama']." Kota ".$stasiunname['kota']." ".date('m-Y', strtotime($headertitle['waktu']));
                     }

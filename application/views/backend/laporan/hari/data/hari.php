@@ -38,6 +38,11 @@
                       <?php foreach($idstasiun as $seletidstasiun) : ?>
                         <option value="<?= $seletidstasiun['id_stasiun'] ?>"><?= $seletidstasiun['id_stasiun'] ?></option>
                       <?php endforeach ?>
+                      <?php if($this->fungsi->user_login()->usr_cty_id == '3') : ?>
+                        <?php foreach($idstasiunkiec as $kiec) : ?>
+                          <option value="<?= $kiec['id_stasiun'] ?>"><?= $kiec['id_stasiun'] ?></option>
+                        <?php endforeach ?>
+                      <?php endif ?>
                     </select>
                   </div>
                   <div class="form-group">
@@ -90,6 +95,17 @@
                                     <?php break; ?>
                                   <?php endforeach ?>
                                 <?php endforeach ?>
+
+                                <?php if($this->fungsi->user_login()->usr_cty_id == '3') : ?>
+                                  <?php foreach($idstasiunkiec as $idkota) : ?>
+                                    <?php foreach($aqmdataday as $kota) : ?>
+                                      <?php if($idkota['id_stasiun'] == $kota['id_stasiun']) : ?>
+                                        <?= $idkota['kota'] ?>
+                                      <?php endif ?>
+                                      <?php break; ?>
+                                    <?php endforeach ?>
+                                  <?php endforeach ?>
+                                <?php endif ?>
                               </td>
                             </tr>
                           </tbody>
@@ -109,6 +125,17 @@
                                   <?php break; ?>
                                 <?php endforeach ?>
                               <?php endforeach ?>
+
+                              <?php if($this->fungsi->user_login()->usr_cty_id == '3') : ?>
+                                <?php foreach($idstasiunkiec as $idkota) : ?>
+                                  <?php foreach($aqmdataday as $kota) : ?>
+                                    <?php if($idkota['id_stasiun'] == $kota['id_stasiun']) : ?>
+                                      <?= $idkota['nama'] ?>
+                                    <?php endif ?>
+                                    <?php break; ?>
+                                  <?php endforeach ?>
+                                <?php endforeach ?>
+                              <?php endif ?>
                             </td>
                           </tr>
                           <tr>

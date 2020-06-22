@@ -17,6 +17,13 @@ class B_aqms_m extends CI_Model {
 		return $query->result_array();
 	}
 
+  public function get_stasiun_kiec(){
+    $this->db->order_by('id', 'DESC');
+    $this->db->where('cty_id', '4');
+    $query = $this->db->get('aqm_stasiun_demo');
+    return $query->result_array();
+  }
+
   public function get_stasiun_mtr($idstasiun = FALSE){
     if($idstasiun === FALSE){
     $this->db->order_by('id', 'DESC');
@@ -73,15 +80,25 @@ class B_aqms_m extends CI_Model {
   }
 
   public function get_stasiunid($id)
-    {
-      $ctyid = $this->fungsi->user_login()->usr_cty_id;
-      $this->db->select('*');
-      $this->db->from('aqm_stasiun_demo');
-      $this->db->where('id_stasiun', $id);
-      $this->db->where('cty_id', $ctyid);
-      $query = $this->db->get();
-      return $query->row_array();
-    }
+  {
+    $ctyid = $this->fungsi->user_login()->usr_cty_id;
+    $this->db->select('*');
+    $this->db->from('aqm_stasiun_demo');
+    $this->db->where('id_stasiun', $id);
+    $this->db->where('cty_id', $ctyid);
+    $query = $this->db->get();
+    return $query->row_array();
+  }
+
+  public function get_stasiunid_kiec($id)
+  {
+    $this->db->select('*');
+    $this->db->from('aqm_stasiun_demo');
+    $this->db->where('id_stasiun', $id);
+    $this->db->where('cty_id', '4');
+    $query = $this->db->get();
+    return $query->row_array();
+  }
 
     // start
     var $table = 'aqm_data'; // define table

@@ -3,19 +3,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class B_tahunan_m extends CI_Model {
 
-    function __construct()
-    {
-        parent::__construct();
-        date_default_timezone_set('Asia/Jakarta');
-    }
+  function __construct()
+  {
+      parent::__construct();
+      date_default_timezone_set('Asia/Jakarta');
+  }
 
-    public function get_stasiun($id = FALSE){
-      $ctyid = $this->fungsi->user_login()->usr_cty_id;
-      $this->db->order_by('id', 'DESC');
-      $this->db->where('cty_id', $ctyid);
-      $query = $this->db->get('aqm_stasiun_demo');
-      return $query->result_array();
-    }
+  public function get_stasiun($id = FALSE){
+    $ctyid = $this->fungsi->user_login()->usr_cty_id;
+    $this->db->order_by('id', 'DESC');
+    $this->db->where('cty_id', $ctyid);
+    $query = $this->db->get('aqm_stasiun_demo');
+    return $query->result_array();
+  }
+
+  public function get_stasiun_kiec(){
+    $this->db->order_by('id', 'DESC');
+    $this->db->where('cty_id', '4');
+    $query = $this->db->get('aqm_stasiun_demo');
+    return $query->result_array();
+  }
 
   public function get_aqmdata(){
       $this->db->select('*');

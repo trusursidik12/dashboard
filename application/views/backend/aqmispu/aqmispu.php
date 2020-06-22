@@ -1,41 +1,3 @@
-<?php if($idstasiun['cty_id'] != $this->fungsi->user_login()->usr_cty_id ) : ?>
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-sm">
-            <!-- general form elements -->
-            <div class="card card-light">
-              <div class="row p-3">
-                <div class="col-sm-12 p-3">
-                <h3 class="card-title">404 Page Not Found</h3>
-                <hr style="margin-top: 30px; margin-bottom: 0px;">
-              </div>
-                <div class="col-sm-12 p-3">
-                <h3 class="card-title">The page you requested was not found. <a href="javascript:history.go(-1)" type="button" class="btn btn-primary btn-sm"><i class="fa fa-backward"></i>Back</a></h3>
-              </div>
-              </div>
-            </div>
-            <!-- /.card -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-<?php else : ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -73,6 +35,11 @@
                           <?php endif ?>
                         <?php endforeach ?>
                       <?php endforeach ?>
+                      <?php if($this->fungsi->user_login()->usr_cty_id == '3') : ?>
+                        <?php foreach($aqmstasiunkiec as $kiec) : ?>
+                          <option value="<?= site_url('aqmispu/kiec/'.$kiec['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $kiec['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $kiec['id_stasiun'] ?></option>
+                        <?php endforeach ?>
+                      <?php endif ?>
                     </select>
                   </div>
               </h3>
@@ -127,7 +94,6 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<?php endif ?>
 
 <script>
     $(document).ready(function () {

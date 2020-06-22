@@ -13,10 +13,28 @@ class B_aqmispu extends CI_Controller {
     {
 
         $data['idstasiun']      = $this->b_aqms_m->get_stasiunid($idstasiun);
+        $data['aqmstasiunkiec'] = $this->b_aqms_m->get_stasiun_kiec();
         $data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
         $data['aqmispu']        = $this->b_aqms_m->get_aqmispu();
         $data['controllers']    = "dashboard";
         $data['title_header']   = "aqm ispu";
+
+        if(empty($data['idstasiun'])){
+            show_404();
+        }
+
+        $this->temp_backend->load('backend/theme/template_v', 'backend/aqmispu/aqmispu', $data);
+    }
+
+    public function idstasiun_kiec($idstasiun = NULL)
+    {
+
+        $data['idstasiun']      = $this->b_aqms_m->get_stasiunid_kiec($idstasiun);
+        $data['aqmstasiunkiec'] = $this->b_aqms_m->get_stasiun_kiec();
+        $data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
+        $data['aqmispu']        = $this->b_aqms_m->get_aqmispu();
+        $data['controllers']    = "dashboard";
+        $data['title_header']   = "aqm data";
 
         if(empty($data['idstasiun'])){
             show_404();
@@ -31,7 +49,7 @@ class B_aqmispu extends CI_Controller {
         $data['idstasiun']      = $this->b_aqms_m->get_stasiun_mtr($idstasiun);
         $data['idstasiunselect']= $this->b_aqms_m->get_stasiun_mtr();
         $data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
-        $data['aqmispu']        = $this->b_aqms_m->get_aqmdatas();
+        $data['aqmispu']        = $this->b_aqms_m->get_aqmispu();
         $data['controllers']    = "Monitoring";
         $data['title_header']   = "aqm ispu";
 
@@ -63,7 +81,7 @@ class B_aqmispu extends CI_Controller {
             $row = array();
             $row[] = $no.".";
             $row[] = $aqms->id_stasiun;
-            $row[] = date('d-m-Y H:i', strtotime($aqms->waktu));
+            $row[] = date('d-m-Y', strtotime($aqms->waktu));
             $row[] = $aqms->pm10;
             $row[] = $aqms->so2;
             $row[] = $aqms->co;
