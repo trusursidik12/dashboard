@@ -211,18 +211,28 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="<?= site_url('accounts/levels/list'); ?>" class="nav-link <?= $this->uri->uri_string() == 'accounts/levels/list' ? 'active' : ''; ?>">
+                    <a href="<?= site_url('accounts/levels/list'); ?>" class="nav-link <?= $this->uri->uri_string() == 'accounts/levels/list' || $this->uri->uri_string() == 'accounts/levels/add' ? 'active' : ''; ?>">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Level List</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?= site_url('accounts/users/list'); ?>" class="nav-link <?= $this->uri->uri_string() == 'accounts/users/list' ? 'active' : ''; ?>">
+                    <a href="<?= site_url('accounts/users/list'); ?>" class="nav-link <?= $this->uri->uri_string() == 'accounts/users/list' || $this->uri->uri_string() == 'accounts/users/add' ? 'active' : ''; ?>">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Users List</p>
                     </a>
                   </li>
                 </ul>
+              </li>
+              <li class="nav-item">
+                <?php foreach(array_slice($idstasiunloop, 0, 1) as $stasiunid) : ?>
+                  <a href="<?= site_url('stations/list') ?>" class="nav-link <?= $this->uri->uri_string() == 'stations/list' || $this->uri->uri_string() == 'stations/add' ? 'active' : ''; ?>">
+                <?php endforeach ?>
+                  <i class="nav-icon fas fa-map-marker-alt"></i>
+                  <p>
+                    AQMS Stations
+                  </p>
+                </a>
               </li>
             <?php endif ?>
           <?php else : ?>

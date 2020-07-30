@@ -53,6 +53,11 @@ $route['login']							= 'b_acc_login/login';
 $route['process']						= 'b_acc_login/process';
 $route['logout']						= 'b_acc_login/logout';
 
+$route['stations/list']			        = 'b_stations/index';
+$route['stations/add']			        = 'b_stations/add';
+$route['stations/edit/(:any)']	        = 'b_stations/edit/$1';
+$route['stations/delete/(:any)']	    = 'b_stations/delete/$1';
+
 $route['accounts/users/list']			= 'b_acc_users/index';
 $route['accounts/users/add']			= 'b_acc_users/add';
 $route['accounts/users/edit/(:any)']	= 'b_acc_users/edit/$1';
