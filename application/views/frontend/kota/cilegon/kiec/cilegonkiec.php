@@ -1,4 +1,4 @@
-<section class="content bg-col">
+<section class="content bg-col" style="margin-top: 100px">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 text-white">
