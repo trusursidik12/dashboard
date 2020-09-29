@@ -48,13 +48,68 @@
   <section class="content">
     <div class="container-fluid">
       <!-- Small boxes (Stat box) -->
+
       <div class="row">
         <?php foreach($aqmstasiunmtr as $stasiun) : ?>
           <?php foreach($aqmdata as $data) : ?>
-            <?php if($stasiun['id_stasiun'] == $data['id_stasiun']) : ?>
+            <?php $date = date('Y-m-d H:i:s', strtotime($data['waktu']) + 60*60) ?>
+            <?php if($stasiun['id_stasiun'] == $data['id_stasiun'] && $date < date('Y-m-d H:i:s')) : ?>
               <div class="col-lg-3 col-6">
                 <!-- small box -->
-                <div class="small-box <?php $date = date('Y-m-d H:i:s', strtotime($data['waktu']) + 60*60) ?> <?= $date < date('Y-m-d H:i:s') ? 'bg-danger' : 'bg-info' ?>">
+                <div class="small-box bg-danger">
+                  <div class="inner">
+                    <h6 style="font-size: 12px;">
+                      LAST DATA | <?= $data['waktu'] ?>
+                    </h6>
+
+                    <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion">
+                    <img src="<?= base_url('assets/backend/img/dashboard/station.png') ?>"></i>
+                  </div>
+                  <a href="<?= site_url('monitoring/aqmdata/'.$stasiun['id_stasiun']) ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+            <?php endif ?>            
+          <?php endforeach ?>
+        <?php endforeach ?>
+      </div>
+
+      <div class="row">
+        <?php foreach($aqmstasiunmtr as $stasiun) : ?>
+          <?php foreach($aqmdata as $data) : ?>
+            <?php if($stasiun['id_stasiun'] == $data['id_stasiun'] && $data['wd'] == '0' && $data['humidity'] == '0' && $data['temperature'] == '0' && $data['pressure'] == '0') : ?>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                  <div class="inner">
+                    <h6 style="font-size: 12px;">
+                      LAST DATA | <?= $data['waktu'] ?>
+                    </h6>
+
+                    <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
+                  </div>
+                  <div class="icon">
+                    <i class="ion">
+                    <img src="<?= base_url('assets/backend/img/dashboard/station.png') ?>"></i>
+                  </div>
+                  <a href="<?= site_url('monitoring/aqmdata/'.$stasiun['id_stasiun']) ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+            <?php endif ?>
+          <?php endforeach ?>
+        <?php endforeach ?>
+      </div>
+
+      <div class="row">
+        <?php foreach($aqmstasiunmtr as $stasiun) : ?>
+          <?php foreach($aqmdata as $data) : ?>
+            <?php $date = date('Y-m-d H:i:s', strtotime($data['waktu']) + 60*60) ?>
+            <?php if($stasiun['id_stasiun'] == $data['id_stasiun'] && $date >= date('Y-m-d H:i:s')) : ?>
+              <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
                   <div class="inner">
                     <h6 style="font-size: 12px;">
                       LAST DATA | <?= $data['waktu'] ?>

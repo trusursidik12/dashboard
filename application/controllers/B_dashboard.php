@@ -32,11 +32,12 @@ class B_dashboard extends CI_Controller {
 
 	public function monitoring()
 	{
-		$data['title_header'] 	= "Dashboard";
-		$data['controllers'] 	= "dashboard";
-		$data['aqmstasiunmtr']	= $this->b_aqms_m->get_stasiun_mtr();
-		$data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
-		$data['aqmdata']  		= $this->b_aqms_m->get_aqmdata();
+		$data['title_header'] 		= "Dashboard";
+		$data['controllers'] 		= "dashboard";
+		$data['aqmstasiunmtr']		= $this->b_aqms_m->get_stasiun_mtr();
+		$data['idstasiunloop']  	= $this->b_aqms_m->get_stasiun();
+		$data['aqmdata']  			= $this->b_aqms_m->get_aqmdata();
+		$data['aqmdata_duplicate']			= $this->b_aqms_m->get_aqmdata_duplicate();
 
 		$this->temp_backend->load('backend/theme/template_v', 'backend/dashboard/monitoring', $data);
 	}

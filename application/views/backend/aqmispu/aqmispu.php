@@ -117,6 +117,9 @@
         },
       },
       dom: "lBfrtip",
+      buttons: [
+            'copy', 'excel'
+        ],
     "order": [ [2, "desc"]],
     } );
     

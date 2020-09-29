@@ -42,6 +42,14 @@ class B_aqms_m extends CI_Model {
       return $query->result_array();
   }
 
+  public function get_aqmdata_duplicate(){
+    $this->db->select('*');
+    $this->db->from('aqm_data');
+    $this->db->where('waktu IN (select max(waktu) from aqm_data where waktu < (select max(waktu) from aqm_data) group by id_stasiun)');
+    $query = $this->db->get();
+    return $query->result_array();
+}
+
   public function get_aqmdatas(){
       $this->db->distinct('id_stasiun, waktu, pm10, pm25, so2, co, o3, no2, hc, voc, nh3, no, h2s, cs2');
       $this->db->group_by('id_stasiun, waktu, pm10, pm25, so2, co, o3, no2, hc, voc, nh3, no, h2s, cs2');
