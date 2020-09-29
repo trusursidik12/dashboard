@@ -77,7 +77,7 @@
 
         <?php foreach($aqmstasiunmtr as $stasiun) : ?>
           <?php foreach($aqmdata as $data) : ?>
-            <?php if($stasiun['id_stasiun'] == $data['id_stasiun'] && $data['wd'] == '0' && $data['humidity'] == '0' && $data['temperature'] == '0' && $data['pressure'] == '0') : ?>
+            <?php if($stasiun['id_stasiun'] == $data['id_stasiun'] && $data['wd'] == '0' && $data['humidity'] == '0' && $data['temperature'] == '0' && $data['pressure'] == '0' || $stasiun['id_stasiun'] == $data['id_stasiun'] && $data['so2'] == '0' && $data['co'] == '0' && $data['o3'] == '0' && $data['no2'] == '0') : ?>
               <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-info">
