@@ -74,9 +74,7 @@
             <?php endif ?>            
           <?php endforeach ?>
         <?php endforeach ?>
-      </div>
 
-      <div class="row">
         <?php foreach($aqmstasiunmtr as $stasiun) : ?>
           <?php foreach($aqmdata as $data) : ?>
             <?php if($stasiun['id_stasiun'] == $data['id_stasiun'] && $data['wd'] == '0' && $data['humidity'] == '0' && $data['temperature'] == '0' && $data['pressure'] == '0') : ?>
@@ -100,9 +98,7 @@
             <?php endif ?>
           <?php endforeach ?>
         <?php endforeach ?>
-      </div>
-
-      <div class="row">
+        
         <?php foreach($aqmstasiunmtr as $stasiun) : ?>
           <?php foreach($aqmdata as $data) : ?>
             <?php $date = date('Y-m-d H:i:s', strtotime($data['waktu']) + 60*60) ?>
