@@ -51,15 +51,15 @@
 
       <div class="row">
         <?php foreach($aqmstasiunmtr as $stasiun) : ?>
-          <?php foreach($aqmdata as $data) : ?>
-            <?php $date = date('Y-m-d H:i:s', strtotime($data['waktu']) + 60*60) ?>
-            <?php if($stasiun['id_stasiun'] == $data['id_stasiun'] && $date < date('Y-m-d H:i:s')) : ?>
+          <?php foreach($aqmdata as $datared) : ?>
+            <?php $date = date('Y-m-d H:i:s', strtotime($datared['waktu']) + 60*60) ?>
+            <?php if($stasiun['id_stasiun'] == $datared['id_stasiun'] && $date < date('Y-m-d H:i:s')) : ?>
               <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-danger">
                   <div class="inner">
                     <h6 style="font-size: 12px;">
-                      LAST DATA | <?= $data['waktu'] ?>
+                      LAST DATA | <?= $datared['waktu'] ?>
                     </h6>
 
                     <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
@@ -76,14 +76,14 @@
         <?php endforeach ?>
 
         <?php foreach($aqmstasiunmtr as $stasiun) : ?>
-          <?php foreach($aqmdata as $data) : ?>
-            <?php if($stasiun['id_stasiun'] == $data['id_stasiun'] && $data['wd'] == '0' && $data['humidity'] == '0' && $data['temperature'] == '0' && $data['pressure'] == '0' || $stasiun['id_stasiun'] == $data['id_stasiun'] && $data['so2'] == '0' && $data['co'] == '0' && $data['o3'] == '0' && $data['no2'] == '0') : ?>
+          <?php foreach($aqmdata as $datablue) : ?>
+            <?php if($stasiun['id_stasiun'] == $datablue['id_stasiun'] && $datablue['ws'] == '0' && $datablue['wd'] == '0' && $datablue['sr'] == '0' && $datablue['rain_intensity'] == '0' || $stasiun['id_stasiun'] == $datablue['id_stasiun'] && $datablue['so2'] == '0' && $datablue['co'] == '0' && $datablue['o3'] == '0' && $datablue['no2'] == '0') : ?>
               <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-info">
                   <div class="inner">
                     <h6 style="font-size: 12px;">
-                      LAST DATA | <?= $data['waktu'] ?>
+                      LAST DATA | <?= $datablue['waktu'] ?>
                     </h6>
 
                     <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
@@ -100,15 +100,15 @@
         <?php endforeach ?>
         
         <?php foreach($aqmstasiunmtr as $stasiun) : ?>
-          <?php foreach($aqmdata as $data) : ?>
-            <?php $date = date('Y-m-d H:i:s', strtotime($data['waktu']) + 60*60) ?>
-            <?php if($stasiun['id_stasiun'] == $data['id_stasiun'] && $date >= date('Y-m-d H:i:s')) : ?>
+          <?php foreach($aqmdata as $datagreen) : ?>
+            <?php $date = date('Y-m-d H:i:s', strtotime($datagreen['waktu']) + 60*60) ?>
+            <?php if($stasiun['id_stasiun'] == $datagreen['id_stasiun'] && $date >= date('Y-m-d H:i:s')) : ?>
               <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-success">
                   <div class="inner">
                     <h6 style="font-size: 12px;">
-                      LAST DATA | <?= $data['waktu'] ?>
+                      LAST DATA | <?= $datagreen['waktu'] ?>
                     </h6>
 
                     <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
