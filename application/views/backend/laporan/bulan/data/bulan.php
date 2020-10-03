@@ -35,13 +35,9 @@
                     <label for="fromdate">&emsp;ID STASIUN : &nbsp;</label>
                     <select name="idstasiun" class="form-control" required>
                       <option value="" selected>-- Pilih Id Stasiun --</option>
-                      <?php if($this->fungsi->user_login()->usr_cty_id == '10') : ?>
-                        <option value="CEMS_RUM" > CEMS_RUM </option>
-                      <?php else : ?>
                         <?php foreach($idstasiun as $seletidstasiun) : ?>
                           <option value="<?= $seletidstasiun['id_stasiun'] ?>"><?= $seletidstasiun['id_stasiun'] ?></option>
-                        <?php endforeach ?>
-                      <?php endif ?>                      
+                        <?php endforeach ?>               
                       <?php if($this->fungsi->user_login()->usr_cty_id == '3') : ?>
                         <?php foreach($idstasiunkiec as $kiec) : ?>
                           <option value="<?= $kiec['id_stasiun'] ?>"><?= $kiec['id_stasiun'] ?></option>
