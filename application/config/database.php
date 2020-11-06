@@ -10,6 +10,7 @@ $db['default'] = array(
 	'username' => 'root',
 	'password' => 'R2h2s12123',
 	'database' => 'aqms',
+	'database' => 'aqms_20200515',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
