@@ -142,7 +142,7 @@
     <!-- Brand Logo -->
     <a href="<?= $this->fungsi->user_login()->usr_cty_id != '8' ? site_url() : site_url('monitoring') ?>" class="brand-link">
       <img src="<?=base_url('assets/backend/img/dashboard/logo.png')?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">ISPUMAP</span>
+      <span class="brand-text font-weight-light">DASHBOARD</span>
     </a>
 
     <!-- Sidebar -->
