@@ -62,7 +62,7 @@
                       LAST DATA | <?= $datared['waktu'] ?>
                     </h6>
 
-                    <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
+                    <p><?= $stasiun['id_stasiun'] ?></p>
                   </div>
                   <div class="icon">
                     <i class="ion">
@@ -86,7 +86,7 @@
                       LAST DATA | <?= $datablue['waktu'] ?>
                     </h6>
 
-                    <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
+                    <p><?= $stasiun['id_stasiun'] ?></p>
                   </div>
                   <div class="icon">
                     <i class="ion">
@@ -111,7 +111,7 @@
                       LAST DATA | <?= $datagreen['waktu'] ?>
                     </h6>
 
-                    <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
+                    <p><?= $stasiun['id_stasiun'] ?></p>
                   </div>
                   <div class="icon">
                     <i class="ion">

@@ -16,13 +16,13 @@
             <?php if($stasiun['id_stasiun'] == $data['id_stasiun']) : ?>
               <div class="col-lg">
                 <!-- small box -->
-                <div class="small-box <?php $date = date('Y-m-d H:i:s', strtotime($data['waktu']) + 60*60) ?> <?= $date < date('Y-m-d H:i:s') ? 'bg-danger' : 'bg-info' ?>">
+                <div class="small-box <?php $date = date('Y-m-d H:i:s', strtotime($data['waktu']) + 60*60) ?> <?= $date < date('Y-m-d H:i:s') ? 'bg-danger' : 'bg-success' ?>">
                   <div class="inner">
                     <h6 style="font-size: 12px;">
                       LAST DATA | <?= $data['waktu'] ?>
                     </h6>
 
-                    <p>KLHK-<?= $stasiun['id_stasiun'] ?></p>
+                    <p><?= $stasiun['id_stasiun'] ?></p>
                   </div>
                   <div class="icon">
                     <i class="ion">
@@ -41,13 +41,13 @@
               <?php if($kiec['id_stasiun'] == $data['id_stasiun']) : ?>
                 <div class="col-lg">
                   <!-- small box -->
-                  <div class="small-box <?php $date = date('Y-m-d H:i:s', strtotime($data['waktu']) + 60*60) ?> <?= $date < date('Y-m-d H:i:s') ? 'bg-danger' : 'bg-info' ?>">
+                  <div class="small-box <?php $date = date('Y-m-d H:i:s', strtotime($data['waktu']) + 60*60) ?> <?= $date < date('Y-m-d H:i:s') ? 'bg-danger' : 'bg-success' ?>">
                     <div class="inner">
                       <h6 style="font-size: 12px;">
                         LAST DATA | <?= $data['waktu'] ?>
                       </h6>
 
-                      <p>KLHK-<?= $kiec['id_stasiun'] ?></p>
+                      <p><?= $kiec['id_stasiun'] ?></p>
                     </div>
                     <div class="icon">
                       <i class="ion">
