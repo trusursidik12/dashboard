@@ -152,7 +152,7 @@
             {
                 extend: 'pdfHtml5',
                 exportOptions: {
-                    columns: [ 0, 1, 2, 5 ]
+                    columns: 'visible'
                 }
             },
             'colvis'
