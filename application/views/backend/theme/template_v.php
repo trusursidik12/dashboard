@@ -281,7 +281,7 @@
               || $this->uri->uri_string() == 'laporan/data/tahun' ? 'active' : ''; ?>">
                 <i class="nav-icon fas fa-file-export"></i>
                 <p>
-                  Laporan Data
+                  Laporan Data KLHK
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -317,7 +317,7 @@
                 || $this->uri->uri_string() == 'laporan/ispu/tahun' ? 'active' : ''; ?>">
                   <i class="nav-icon fas fa-file-export"></i>
                   <p>
-                    Laporan ISPU
+                    Laporan ISPU KLHK
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
