@@ -146,8 +146,8 @@ class B_aqms_m extends CI_Model {
     {
         $this->db
                 // ->select('*')
-                ->distinct('id_stasiun, waktu, pm10, pm25, so2, co, o3, no2, hc, voc, nh3, no, h2s, cs2, ws, wd, humidity, temperature, pressure, sr, rain_intensity')
-                ->group_by('id_stasiun, waktu, pm10, pm25, so2, co, o3, no2, hc, voc, nh3, no, h2s, cs2, ws, wd, humidity, temperature, pressure, sr, rain_intensity')
+                ->distinct('id_stasiun, waktu, pm10, pm25, tsp, so2, co, o3, no2, hc, voc, nh3, no, h2s, cs2, ws, wd, humidity, temperature, pressure, sr, rain_intensity')
+                ->group_by('id_stasiun, waktu, pm10, pm25, tsp, so2, co, o3, no2, hc, voc, nh3, no, h2s, cs2, ws, wd, humidity, temperature, pressure, sr, rain_intensity')
                 ->from($this->table)
                 ->where('id_stasiun', $idstasiun);
 

@@ -88,6 +88,9 @@ class B_aqmdata extends CI_Controller {
             if($aqms->pm25 != null && $aqms->pm25 != '-1'){
                 $row[] = $aqms->pm25;
             }
+            if($aqms->tsp != null && $aqms->tsp != '-1'){
+                $row[] = $aqms->tsp;
+            }
             if($aqms->so2 != null && $aqms->so2 != '-1'){
                 $row[] = $aqms->so2;
             }
