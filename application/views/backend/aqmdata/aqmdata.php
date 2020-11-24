@@ -149,7 +149,10 @@
                     columns: ':visible'
                 }
             },
-            'colvis'
+            'colvis',
+            {
+              title: '<?= $idstasiun['nama'] ?> DATA',
+            },
         ],
     "order": [ [2, "desc"]],
     } );

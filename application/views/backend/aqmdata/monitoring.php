@@ -171,7 +171,19 @@
       },
       dom: "lBfrtip",
       buttons: [
-            'copy', 'excel'
+            {
+                extend: 'copyHtml5',
+                exportOptions: {
+                    columns: [ 0, ':visible' ]
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
         ],
     "order": [ [2, "desc"]],
     } );
