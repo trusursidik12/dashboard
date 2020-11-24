@@ -108,6 +108,7 @@
                     <?php if($data['id_stasiun'] == $idstasiun['id_stasiun']) : ?>
                       <?= $data['pm10'] != null  && $data['pm10'] != '-1' ? '<th>PM10</th>' : '' ?>
                       <?= $data['pm25'] != null  && $data['pm25'] != '-1' ? '<th>PM2.5</th>' : '' ?>
+                      <?= $data['tsp'] != null  && $data['tsp'] != '-1' ? '<th>TSP</th>' : '' ?>
                       <?= $data['so2'] != null  && $data['so2'] != '-1' ? '<th>SO2</th>' : '' ?>
                       <?= $data['co'] != null  && $data['co'] != '-1' ? '<th>CO</th>' : '' ?>
                       <?= $data['o3'] != null  && $data['o3'] != '-1' ? '<th>O3</th>' : '' ?>
