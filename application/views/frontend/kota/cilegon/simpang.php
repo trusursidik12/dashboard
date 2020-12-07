@@ -10,7 +10,6 @@
     <div class="col-2">
         <div class="card p-1 bg-col" style="margin-top: 100px;">
             <h6>VOC</h6>
-            <h1 class="text-center">&nbsp;</h1>
             <h1 class="text-center"><?php foreach($weathersimpang as $vocsimpang) : ?> <?= $vocsimpang['voc'] ?> <?php endforeach ?> </h1>
         </div>
     </div>
