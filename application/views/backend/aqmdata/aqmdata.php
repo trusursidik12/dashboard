@@ -73,17 +73,17 @@
                   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WAKTU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                   <?php foreach($aqmdata as $data) : ?>
                     <?php if($data['id_stasiun'] == $idstasiun['id_stasiun']) : ?>
-                      <?= $data['pm10'] != null  && $data['pm10'] != '-1' ? '<th>PM10</th>' : '' ?>
-                      <?= $data['pm25'] != null  && $data['pm25'] != '-1' ? '<th>PM2.5</th>' : '' ?>
-                      <?= $data['tsp'] != null  && $data['tsp'] != '-1' ? '<th>TSP</th>' : '' ?>
-                      <?= $data['so2'] != null  && $data['so2'] != '-1' ? '<th>SO2</th>' : '' ?>
-                      <?= $data['co'] != null  && $data['co'] != '-1' ? '<th>CO</th>' : '' ?>
-                      <?= $data['o3'] != null  && $data['o3'] != '-1' ? '<th>O3</th>' : '' ?>
-                      <?= $data['no2'] != null && $data['no2'] != '-1' ? '<th>NO2</th>' : '' ?>
-                      <?= $data['hc'] != null && $data['hc'] != '-1' ? '<th>HC</th>' : '' ?>
-                      <?= $data['voc'] != null && $data['voc'] != '-1' ? '<th>VOC</th>' : '' ?>
-                      <?= $data['nh3'] != null  && $data['nh3'] != '-1' ? '<th>NH3</th>' : '' ?>
-                      <?= $data['no'] != null  && $data['no'] != '-1' ? '<th>NO</th>' : '' ?>
+                      <th>PM10</th>
+                      <th>PM2.5</th>
+                      <th>TSP</th>
+                      <th>SO2</th>
+                      <th>CO</th>
+                      <th>O3</th>
+                      <th>NO2</th>
+                      <th>HC</th>
+                      <th>VOC</th>
+                      <th>NH3</th>
+                      <th>NO</th>
                     <?php endif ?>
                   <?php endforeach ?>
                   <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' ? '<th>H2S</th>' : '' ?>
