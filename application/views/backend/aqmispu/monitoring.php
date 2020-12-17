@@ -105,10 +105,12 @@
                   <th>ID STASIUN</th>
                   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WAKTU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                   <th>PM10</th>
+                  <th>PM2.5</th>
                   <th>SO2</th>
                   <th>CO</th>
                   <th>O3</th>
                   <th>NO2</th>
+                  <th>HC</th>
                 </tr>
               </thead>
             <tbody>

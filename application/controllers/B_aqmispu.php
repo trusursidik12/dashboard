@@ -83,10 +83,12 @@ class B_aqmispu extends CI_Controller {
             $row[] = $aqms->id_stasiun;
             $row[] = date('d-m-Y', strtotime($aqms->waktu));
             $row[] = $aqms->pm10;
+            $row[] = $aqms->pm25;
             $row[] = $aqms->so2;
             $row[] = $aqms->co;
             $row[] = $aqms->o3;
             $row[] = $aqms->no2;
+            $row[] = $aqms->hc;
             $data[] = $row;
         }
         $output = array(
