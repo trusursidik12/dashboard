@@ -91,10 +91,10 @@
                   <th><?= $idstasiun['id_stasiun'] == 'CEMS_RUM' ? 'VELOCITY' : 'WS' ?></th>
                   <th>WD</th>
                   <th>HUMIDITY</th>
-                  <th>TEMPERATURE</th>
-                  <th>PRESSURE</th>
+                  <th>TEMP</th>
+                  <th>PRESS`</th>
                   <th>SR</th>
-                  <th>RAIN INTENSITY</th>
+                  <th>RAIN INTEN</th>
                 </tr>
               </thead>
             <tbody>
