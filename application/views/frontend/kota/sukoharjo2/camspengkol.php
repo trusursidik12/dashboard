@@ -8,7 +8,7 @@
     </div>
 
     <div class="row text-white" style="margin-left:0px; margin-right:0px">
-      <div class="col-8 card p-2 border" style="height: 580px;"><br>
+      <div class="col-8 card p-2 border" style="height: 580px;">
         <canvas id="chartpengkoldata" width="100" height="55"></canvas>
       </div>
       <div class="col-4 card p-2 border bg-info">
@@ -141,7 +141,7 @@
               responsive: true,
               legend: {
                   position: 'top',
-                  display: false,   
+                  display: true,   
               },
               "hover": {
                 "animationDuration": 0

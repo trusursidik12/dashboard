@@ -141,7 +141,7 @@
               responsive: true,
               legend: {
                   position: 'top',
-                  display: false,
+                  display: true,
    
               },
               "hover": {
