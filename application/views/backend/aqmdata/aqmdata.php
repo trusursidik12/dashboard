@@ -86,8 +86,8 @@
                       <th>NO</th>
                     <?php endif ?>
                   <?php endforeach ?>
-                  <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' ? '<th>H2S</th>' : '' ?>
-                  <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' ? '<th>CS2</th>' : '' ?>
+                  <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' || $idstasiun['id_stasiun'] == 'SKH_CELEP' || $idstasiun['id_stasiun'] == 'CEMS_PENGKOL' ? '<th>H2S</th>' : '' ?>
+                  <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' || $idstasiun['id_stasiun'] == 'SKH_CELEP' || $idstasiun['id_stasiun'] == 'CEMS_PENGKOL' ? '<th>CS2</th>' : '' ?>
                   <th><?= $idstasiun['id_stasiun'] == 'CEMS_RUM' ? 'VELOCITY' : 'WS' ?></th>
                   <th>WD</th>
                   <th>HUMIDITY</th>
