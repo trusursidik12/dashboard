@@ -8,7 +8,7 @@
     </div>
 
     <div class="row text-white" style="margin-left:0px; margin-right:0px">
-      <div class="col-8 card p-2 border" style="height: 580px; margin-top: 20px;">
+      <div class="col-8 card p-2 border" style="height: 580px;"><br>
         <canvas id="chartpengkoldata" width="100" height="55"></canvas>
       </div>
       <div class="col-4 card p-2 border bg-info">
