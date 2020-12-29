@@ -35,4 +35,20 @@ class F_sukoharjo_m extends CI_Model {
     return $query->result_array();
   }
 
+  public function get_aqmdata_celep(){
+    $this->db->where('id_stasiun', 'SKH_CELEP');
+    $this->db->order_by('id', 'DESC');
+    $this->db->limit('1');
+    $query = $this->db->get('aqm_data');
+    return $query->result_array();
+  }
+
+  public function get_aqmdata_pengkol(){
+    $this->db->where('id_stasiun', 'SKH_PENGKOL');
+    $this->db->order_by('id', 'DESC');
+    $this->db->limit('1');
+    $query = $this->db->get('aqm_data');
+    return $query->result_array();
+  }
+
 }

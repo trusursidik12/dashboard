@@ -3,8 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 //frontend indoor
 $route['indoor/sukoharjo']				= 'f_sukoharjo/index';
+$route['indoor/sukoharjo2']				= 'f_sukoharjo2/index';
 $route['indoor/dlhcilegon']				= 'f_cilegon/index';
 $route['indoor/kieccilegon']			= 'f_cilegon/cilegonkiec';
+
+//frontend controller sukoharjo2
+$route['indoor/sukoharjo2/cemsrum']		= 'f_sukoharjo2/cemsrum';
+$route['indoor/sukoharjo2/camsrum']		= 'f_sukoharjo2/camsrum';
+$route['indoor/sukoharjo2/camsgupit']	= 'f_sukoharjo2/camsgupit';
+$route['indoor/sukoharjo2/camsplesan']	= 'f_sukoharjo2/camsplesan';
+$route['indoor/sukoharjo2/camscelep']	= 'f_sukoharjo2/camscelep';
+$route['indoor/sukoharjo2/camspengkol']	= 'f_sukoharjo2/camspengkol';
+$route['indoor/sukoharjo2/status']	    = 'f_sukoharjo2/status';
 
 //frontend controller cilegon
 $route['indoor/cilegon/pci']			= 'f_cilegon/pci';
