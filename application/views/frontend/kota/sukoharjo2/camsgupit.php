@@ -2,7 +2,7 @@
     <div class="row" style="margin-left:0px; margin-right:0px">
       <div class="col-12  bg-col">
         <div class="p-1 text-center">
-          <h5 style="font-size: 44px"><b>STASIUN CAMS GUPIT (<?= date('d-m-Y H:i', strtotime($gupit['waktu'])) ?>)</b></h5><br>
+          <h5 style="font-size: 44px"><b>STASIUN AQMS GUPIT (<?= date('d-m-Y H:i', strtotime($gupit['waktu'])) ?>)</b></h5><br>
         </div>
       </div>
     </div>
