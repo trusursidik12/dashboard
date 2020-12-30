@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/backend/dist/css/adminlte.min.css"> -->
-    <script src="<?= base_url() ?>assets/backend/plugins/jquery/jquery.min.js"></script>
+    <!-- <script src="<?= base_url() ?>assets/backend/plugins/jquery/jquery.min.js"></script> -->
     <!-- <script src="<?= base_url() ?>assets/backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -19,6 +19,9 @@
       .carousel-inner > .item > a > img {
         width: 100%;
         margin: auto;
+      }
+      * {
+      cursor: none;
       }
     </style>
     <script src="<?= base_url('assets/frontend/js/jschart/chart/chart.min.js'); ?>"></script>
