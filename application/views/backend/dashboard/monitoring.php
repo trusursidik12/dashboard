@@ -76,27 +76,29 @@
         <?php endforeach ?>
 
         <?php foreach($aqmstasiunmtr as $stasiun) : ?>
-          <?php foreach($aqmdata as $datablue) : ?>
-            <?php if($stasiun['id_stasiun'] == $datablue['id_stasiun'] && $datablue['ws'] == '0' && $datablue['wd'] == '0' && $datablue['sr'] == '0' && $datablue['rain_intensity'] == '0' || $stasiun['id_stasiun'] == $datablue['id_stasiun'] && $datablue['so2'] == '0' && $datablue['co'] == '0' && $datablue['o3'] == '0' && $datablue['no2'] == '0') : ?>
-              <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-info">
-                  <div class="inner">
-                    <h6 style="font-size: 12px;">
-                      LAST DATA | <?= $datablue['waktu'] ?>
-                    </h6>
+          <?php if($stasiun['id_stasiun'] != 'SKH_RUM' || $stasiun['id_stasiun'] != 'SKH_GUPIT' || $stasiun['id_stasiun'] != 'SKH_PLESAN' || $stasiun['id_stasiun'] != 'SKH_CELEP' || $stasiun['id_stasiun'] != 'SKH_PENGKOL' || $stasiun['id_stasiun'] != 'CEMS_RUM') : ?>
+            <?php foreach($aqmdata as $datablue) : ?>
+              <?php if($stasiun['id_stasiun'] == $datablue['id_stasiun'] && $datablue['ws'] == '0' && $datablue['wd'] == '0' && $datablue['sr'] == '0' && $datablue['rain_intensity'] == '0' || $stasiun['id_stasiun'] == $datablue['id_stasiun'] && $datablue['so2'] == '0' && $datablue['co'] == '0' && $datablue['o3'] == '0' && $datablue['no2'] == '0') : ?>
+                <div class="col-lg-3 col-6">
+                  <!-- small box -->
+                  <div class="small-box bg-info">
+                    <div class="inner">
+                      <h6 style="font-size: 12px;">
+                        LAST DATA | <?= $datablue['waktu'] ?>
+                      </h6>
 
-                    <p><?= $stasiun['id_stasiun'] ?></p>
+                      <p><?= $stasiun['id_stasiun'] ?></p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion">
+                      <img src="<?= base_url('assets/backend/img/dashboard/station.png') ?>"></i>
+                    </div>
+                    <a href="<?= site_url('monitoring/aqmdata/'.$stasiun['id_stasiun']) ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                   </div>
-                  <div class="icon">
-                    <i class="ion">
-                    <img src="<?= base_url('assets/backend/img/dashboard/station.png') ?>"></i>
-                  </div>
-                  <a href="<?= site_url('monitoring/aqmdata/'.$stasiun['id_stasiun']) ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-              </div>
-            <?php endif ?>
-          <?php endforeach ?>
+              <?php endif ?>
+            <?php endforeach ?>
+          <?php endif ?>
         <?php endforeach ?>
         
         <?php foreach($aqmstasiunmtr as $stasiun) : ?>
