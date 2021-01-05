@@ -8,8 +8,11 @@
     </div>
 
     <div class="row text-white" style="margin-left:0px; margin-right:0px">
-      <div class="col-8 card p-2 border" style="height: 580px">
-        <canvas id="chartplesandata" width="100" height="55"></canvas>
+      <div class="col-4 card p-2 border" style="height: 580px">
+        <canvas id="chartplesandatah2s" width="100" height="115"></canvas>
+      </div>
+      <div class="col-4 card p-2 border" style="height: 580px">
+        <canvas id="chartplesandatacs2" width="100" height="115"></canvas>
       </div>
       <div class="col-4 card p-2 border bg-info">
         <div class="" style="margin-top: 40px; margin-bottom: 95px">
@@ -114,15 +117,14 @@
     $(function() {
        const data = [
         <?php foreach($aqmdataplesan as $chartplesan) : ?>
-          <?= $chartplesan['h2s'] ?>,
-          <?= $chartplesan['cs2'] ?>
+          <?= $chartplesan['h2s'] ?>
         <?php endforeach ?>
       ];
       const colours = data.map((value) => value > 0 && value <= 50 ? '#28a745' : value > 50 && value <= 100 ? '#28a745' : value > 100 && value <= 200 ? '#28a745' : value > 200 && value <= 300 ? '#28a745' : value > 300 ? '#28a745' : '#28a745');
 
       var color = Chart.helpers.color;
       var UserVsMyAppsData = {
-          labels: ["H2S", "CS2"],
+          labels: ["H2S"],
           datasets: [{
               label: '# DATA',
               backgroundColor: colours,
@@ -133,7 +135,7 @@
    
       };
    
-      var UserVsMyAppsCtx = document.getElementById('chartplesandata').getContext('2d');
+      var UserVsMyAppsCtx = document.getElementById('chartplesandatah2s').getContext('2d');
       var UserVsMyApps = new Chart(UserVsMyAppsCtx, {
           type: 'bar',
           data: UserVsMyAppsData,
@@ -174,9 +176,88 @@
                 yAxes: [{
                   ticks: {
                     beginAtZero: true,
-                    // suggestedMin: 0,
+                    suggestedMin: 0,
                     // stepSize: 50,
-                    // suggestedMax: 10000,
+                    suggestedMax: 1500000,
+                  }
+                }],
+                xAxes: [{
+                  ticks: {
+                    fontSize: 36
+                  }
+                }]
+              }
+          }
+      });
+    });
+  </script>
+
+<script>
+    $(function() {
+       const data = [
+        <?php foreach($aqmdataplesan as $chartplesan) : ?>
+          <?= $chartplesan['cs2'] ?>
+        <?php endforeach ?>
+      ];
+      const colours = data.map((value) => value > 0 && value <= 50 ? '#28a745' : value > 50 && value <= 100 ? '#28a745' : value > 100 && value <= 200 ? '#28a745' : value > 200 && value <= 300 ? '#28a745' : value > 300 ? '#28a745' : '#28a745');
+
+      var color = Chart.helpers.color;
+      var UserVsMyAppsData = {
+          labels: ["CS2"],
+          datasets: [{
+              label: '# DATA',
+              backgroundColor: colours,
+              borderColor: colours,
+              borderWidth: 1,
+              data: data
+          }]
+   
+      };
+   
+      var UserVsMyAppsCtx = document.getElementById('chartplesandatacs2').getContext('2d');
+      var UserVsMyApps = new Chart(UserVsMyAppsCtx, {
+          type: 'bar',
+          data: UserVsMyAppsData,
+          options: {
+              responsive: true,
+              legend: {
+                  position: 'top',
+                  display: true,
+   
+              },
+              "hover": {
+                "animationDuration": 0
+              },
+               "animation": {
+                  "duration": 1,
+                "onComplete": function() {
+                  var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+   
+                  ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                  ctx.textAlign = 'center';
+                  ctx.textBaseline = 'bottom';
+   
+                  this.data.datasets.forEach(function(dataset, i) {
+                    var meta = chartInstance.controller.getDatasetMeta(i);
+                    meta.data.forEach(function(bar, index) {
+                      var data = dataset.data[index];
+                      ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                    });
+                  });
+                }
+              },
+              title: {
+                  display: false,
+                  text: ''
+              },
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true,
+                    suggestedMin: 0,
+                    // stepSize: 50,
+                    suggestedMax: 40000,
                   }
                 }],
                 xAxes: [{
