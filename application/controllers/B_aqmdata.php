@@ -94,8 +94,8 @@ class B_aqmdata extends CI_Controller {
             $row[] = $aqms->nh3;
             $row[] = $aqms->no;
             if($aqms->id_stasiun == 'CEMS_RUM'){
-                $row[] = round($aqms->h2s * 1500);
-                $row[] = round($aqms->cs2 * 3130);   
+                $row[] = $aqms->h2s;
+                $row[] = $aqms->cs2;   
             }else{
                 if($aqms->id_stasiun == 'SKH_RUM' || $aqms->id_stasiun == 'SKH_GUPIT' || $aqms->id_stasiun == 'SKH_PLESAN' || $aqms->id_stasiun == 'SKH_CELEP' || $aqms->id_stasiun == 'SKH_PENGKOL'){
                     $row[] = $aqms->h2s;
