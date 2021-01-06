@@ -77,7 +77,7 @@
 
         <?php foreach($aqmstasiunmtr as $stasiun) : ?>
           <?php foreach($aqmdata as $datablue) : ?>
-            <?php if($stasiun['id_stasiun'] != 'SKH_RUM' || $stasiun['id_stasiun'] != 'SKH_GUPIT' || $stasiun['id_stasiun'] != 'SKH_PLESAN' || $stasiun['id_stasiun'] != 'SKH_CELEP' || $stasiun['id_stasiun'] != 'SKH_PENGKOL' || $stasiun['id_stasiun'] != 'CEMS_RUM' || $stasiun['id_stasiun'] == $datablue['id_stasiun'] && $datablue['ws'] == '0' && $datablue['wd'] == '0' && $datablue['sr'] == '0' && $datablue['rain_intensity'] == '0' || $stasiun['id_stasiun'] == $datablue['id_stasiun'] && $datablue['so2'] == '0' && $datablue['co'] == '0' && $datablue['o3'] == '0' && $datablue['no2'] == '0') : ?>
+            <?php if($stasiun['id_stasiun'] == $datablue['id_stasiun'] && $datablue['ws'] == '0' && $datablue['wd'] == '0' && $datablue['sr'] == '0' && $datablue['rain_intensity'] == '0' || $stasiun['id_stasiun'] == $datablue['id_stasiun'] && $datablue['so2'] == '0' && $datablue['co'] == '0' && $datablue['o3'] == '0' && $datablue['no2'] == '0') : ?>
               <div class="col-lg-3 col-6">
                 <!-- small box -->
                 <div class="small-box bg-info">
