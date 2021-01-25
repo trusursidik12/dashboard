@@ -29,6 +29,7 @@
 
     <!-- <script src="<?= base_url() ?>assets/frontend/js/jschart/jquery.min.js"></script> -->
     <!-- <script src="<?= base_url() ?>assets/frontend/js/bootstrap.bundle.min.js"></script> -->
+    <meta http-equiv="refresh" content="300">
   </head>
   <body onload="startTime()">
         
