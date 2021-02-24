@@ -76,14 +76,14 @@
                   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WAKTU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                   <?php if ($idstasiun['id_stasiun'] == 'VALE_SOROWAKO_01') : ?>
                     <th>PM10</th>
-                    <?php if ($this->fungsi->user_login()->usr_id != 11) { ?>
-                      <th>PIC</th>
-                    <?php } ?>
+                    <th>PIC</th>
                     <th>SO2</th>
                   <?php else : ?>
                     <th>PM10</th>
                     <th>PM2.5</th>
-                    <th>TSP</th>
+                    <?php if ($this->fungsi->user_login()->usr_id != 11) { ?>
+                      <th>PIC</th>
+                    <?php } ?>
                     <th>SO2</th>
                     <th>CO</th>
                     <th>O3</th>
