@@ -71,27 +71,23 @@
                   <th>NO</th>
                   <th>ID STASIUN</th>
                   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WAKTU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                  <?php foreach ($aqmdata as $data) : ?>
-                    <?php if ($data['id_stasiun'] == 'VALE_SOROWAKO_01') : ?>
-                      <th>PM10</th>
-                      <th>TSP</th>
-                      <th>SO2</th>
-                    <?php else : ?>
-                      <?php if ($data['id_stasiun'] == $idstasiun['id_stasiun']) : ?>
-                        <th>PM10</th>
-                        <th>PM2.5</th>
-                        <th>TSP</th>
-                        <th>SO2</th>
-                        <th>CO</th>
-                        <th>O3</th>
-                        <th>NO2</th>
-                        <th>HC</th>
-                        <th>VOC</th>
-                        <th>NH3</th>
-                        <th>NO</th>
-                      <?php endif ?>
-                    <?php endif ?>
-                  <?php endforeach ?>
+                  <?php if ($idstasiun['id_stasiun'] == 'VALE_SOROWAKO_01') : ?>
+                    <th>PM10</th>
+                    <th>TSP</th>
+                    <th>SO2</th>
+                  <?php else : ?>
+                    <th>PM10</th>
+                    <th>PM2.5</th>
+                    <th>TSP</th>
+                    <th>SO2</th>
+                    <th>CO</th>
+                    <th>O3</th>
+                    <th>NO2</th>
+                    <th>HC</th>
+                    <th>VOC</th>
+                    <th>NH3</th>
+                    <th>NO</th>
+                  <?php endif ?>
                   <?php if ($idstasiun['id_stasiun'] != 'VALE_SOROWAKO_01') : ?>
                     <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' || $idstasiun['id_stasiun'] == 'SKH_CELEP' || $idstasiun['id_stasiun'] == 'SKH_PENGKOL' ? '<th>H2S</th>' : '' ?>
                     <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' || $idstasiun['id_stasiun'] == 'SKH_CELEP' || $idstasiun['id_stasiun'] == 'SKH_PENGKOL' ? '<th>CS2</th>' : '' ?>
