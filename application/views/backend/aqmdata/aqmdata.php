@@ -92,15 +92,17 @@
                       <?php endif ?>
                     <?php endif ?>
                   <?php endforeach ?>
-                  <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' || $idstasiun['id_stasiun'] == 'SKH_CELEP' || $idstasiun['id_stasiun'] == 'SKH_PENGKOL' ? '<th>H2S</th>' : '' ?>
-                  <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' || $idstasiun['id_stasiun'] == 'SKH_CELEP' || $idstasiun['id_stasiun'] == 'SKH_PENGKOL' ? '<th>CS2</th>' : '' ?>
-                  <th><?= $idstasiun['id_stasiun'] == 'CEMS_RUM' ? 'VELOCITY' : 'WS' ?></th>
-                  <th>WD</th>
-                  <th>HUMIDITY</th>
-                  <th>TEMP</th>
-                  <th>PRESS`</th>
-                  <th>SR</th>
-                  <th>RAIN INTEN</th>
+                  <?php if ($idstasiun['id_stasiun'] != 'VALE_SOROWAKO_01') : ?>
+                    <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' || $idstasiun['id_stasiun'] == 'SKH_CELEP' || $idstasiun['id_stasiun'] == 'SKH_PENGKOL' ? '<th>H2S</th>' : '' ?>
+                    <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' || $idstasiun['id_stasiun'] == 'SKH_CELEP' || $idstasiun['id_stasiun'] == 'SKH_PENGKOL' ? '<th>CS2</th>' : '' ?>
+                    <th><?= $idstasiun['id_stasiun'] == 'CEMS_RUM' ? 'VELOCITY' : 'WS' ?></th>
+                    <th>WD</th>
+                    <th>HUMIDITY</th>
+                    <th>TEMP</th>
+                    <th>PRESS`</th>
+                    <th>SR</th>
+                    <th>RAIN INTEN</th>
+                  <?php endif ?>
                 </tr>
               </thead>
               <tbody>
