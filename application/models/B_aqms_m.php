@@ -120,8 +120,8 @@ class B_aqms_m extends CI_Model
 
     // start
     var $table = 'aqm_data'; // define table
-    var $column_order = array(null, 'id_stasiun', 'waktu'); //set column field database for datatable orderable
-    var $column_search = array('id_stasiun', 'waktu'); //set column field database for datatable searchable
+    var $column_order = array(null, 'id_stasiun', 'waktu', 'tsp'); //set column field database for datatable orderable
+    var $column_search = array('id_stasiun', 'waktu', 'tsp'); //set column field database for datatable searchable
     var $order = array('id' => 'desc'); // default order
 
     public function get_datatables($from, $to, $idstasiun)
