@@ -82,6 +82,9 @@ class B_aqmdata extends CI_Controller
             $row = array();
             $row[] = $no . ".";
             $row[] = $aqms->id_stasiun;
+            if ($this->fungsi->user_login()->usr_id == 11) {
+                $row[] = $aqms->tsp;
+            }
             $row[] = date('d-m-Y H:i', strtotime($aqms->waktu));
             if ($aqms->id_stasiun == 'VALE_SOROWAKO_01') {
                 $row[] = $aqms->pm10;
@@ -90,7 +93,9 @@ class B_aqmdata extends CI_Controller
             } else {
                 $row[] = $aqms->pm10;
                 $row[] = $aqms->pm25;
-                $row[] = $aqms->tsp;
+                if ($this->fungsi->user_login()->usr_id != 11) {
+                    $row[] = $aqms->tsp;
+                }
                 $row[] = $aqms->so2;
                 $row[] = $aqms->co;
                 $row[] = $aqms->o3;
