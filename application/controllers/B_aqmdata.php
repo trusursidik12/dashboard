@@ -1,11 +1,12 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class B_aqmdata extends CI_Controller {
-	
-	function __construct()
+class B_aqmdata extends CI_Controller
+{
+
+    function __construct()
     {
-        parent::__construct();      
+        parent::__construct();
         check_not_login();
     }
 
@@ -19,7 +20,7 @@ class B_aqmdata extends CI_Controller {
         $data['controllers']    = "dashboard";
         $data['title_header']   = "aqm data";
 
-        if(empty($data['idstasiun'])){
+        if (empty($data['idstasiun'])) {
             show_404();
         }
 
@@ -36,7 +37,7 @@ class B_aqmdata extends CI_Controller {
         $data['controllers']    = "dashboard";
         $data['title_header']   = "aqm data";
 
-        if(empty($data['idstasiun'])){
+        if (empty($data['idstasiun'])) {
             show_404();
         }
 
@@ -47,59 +48,65 @@ class B_aqmdata extends CI_Controller {
     {
 
         $data['idstasiun']      = $this->b_aqms_m->get_stasiun_mtr($idstasiun);
-        $data['idstasiunselect']= $this->b_aqms_m->get_stasiun_mtr();
+        $data['idstasiunselect'] = $this->b_aqms_m->get_stasiun_mtr();
         $data['idstasiunloop']  = $this->b_aqms_m->get_stasiun();
         $data['aqmdata']        = $this->b_aqms_m->get_aqmdatas();
         $data['controllers']    = "Monitoring";
         $data['title_header']   = "aqm data";
 
-        if(empty($data['idstasiun'])){
+        if (empty($data['idstasiun'])) {
             show_404();
         }
 
         $this->temp_backend->load('backend/theme/template_v', 'backend/aqmdata/monitoring', $data);
     }
 
-	public function get_ajax() {
+    public function get_ajax()
+    {
 
         $idstasiun = @$_GET['id_stasiun'];
-        
+
         $from = $this->input->post('from');
         $to = $this->input->post('to');
 
-        if($from!='' && $to!='')
-        {
-            $from = date('Y-m-d',strtotime($from));
-            $to = date('Y-m-d',strtotime($to));
+        if ($from != '' && $to != '') {
+            $from = date('Y-m-d', strtotime($from));
+            $to = date('Y-m-d', strtotime($to));
         }
 
-        $list = $this->b_aqms_m->get_datatables($from,$to,$idstasiun);
+        $list = $this->b_aqms_m->get_datatables($from, $to, $idstasiun);
         $data = array();
         $no = @$_POST['start'];
         foreach ($list as $aqms) {
             $no++;
             $row = array();
-            $row[] = $no.".";
+            $row[] = $no . ".";
             $row[] = $aqms->id_stasiun;
             $row[] = date('d-m-Y H:i', strtotime($aqms->waktu));
-            $row[] = $aqms->pm10;
-            $row[] = $aqms->pm25;
-            $row[] = $aqms->tsp;
-            $row[] = $aqms->so2;
-            $row[] = $aqms->co;
-            $row[] = $aqms->o3;
-            $row[] = $aqms->no2;
-            $row[] = $aqms->hc;
-            $row[] = $aqms->voc;
-            $row[] = $aqms->nh3;
-            $row[] = $aqms->no;
-            if($aqms->id_stasiun == 'CEMS_RUM'){
-                $row[] = $aqms->h2s;
-                $row[] = $aqms->cs2;   
-            }else{
-                if($aqms->id_stasiun == 'SKH_RUM' || $aqms->id_stasiun == 'SKH_GUPIT' || $aqms->id_stasiun == 'SKH_PLESAN' || $aqms->id_stasiun == 'SKH_CELEP' || $aqms->id_stasiun == 'SKH_PENGKOL'){
+            if ($aqms->id_stasiun == 'VALE_SOROWAKO_01') {
+                $row[] = $aqms->pm10;
+                $row[] = $aqms->tsp;
+                $row[] = $aqms->so2;
+            } else {
+                $row[] = $aqms->pm10;
+                $row[] = $aqms->pm25;
+                $row[] = $aqms->tsp;
+                $row[] = $aqms->so2;
+                $row[] = $aqms->co;
+                $row[] = $aqms->o3;
+                $row[] = $aqms->no2;
+                $row[] = $aqms->hc;
+                $row[] = $aqms->voc;
+                $row[] = $aqms->nh3;
+                $row[] = $aqms->no;
+                if ($aqms->id_stasiun == 'CEMS_RUM') {
                     $row[] = $aqms->h2s;
                     $row[] = $aqms->cs2;
+                } else {
+                    if ($aqms->id_stasiun == 'SKH_RUM' || $aqms->id_stasiun == 'SKH_GUPIT' || $aqms->id_stasiun == 'SKH_PLESAN' || $aqms->id_stasiun == 'SKH_CELEP' || $aqms->id_stasiun == 'SKH_PENGKOL') {
+                        $row[] = $aqms->h2s;
+                        $row[] = $aqms->cs2;
+                    }
                 }
             }
             // start edit
@@ -156,11 +163,11 @@ class B_aqmdata extends CI_Controller {
             $data[] = $row;
         }
         $output = array(
-                    "draw" => @$_POST['draw'],
-                    "recordsTotal" => $this->b_aqms_m->count_all($idstasiun),
-                    "recordsFiltered" => $this->b_aqms_m->count_filtered($from,$to,$idstasiun),
-                    "data" => $data,
-                );
+            "draw" => @$_POST['draw'],
+            "recordsTotal" => $this->b_aqms_m->count_all($idstasiun),
+            "recordsFiltered" => $this->b_aqms_m->count_filtered($from, $to, $idstasiun),
+            "data" => $data,
+        );
         // output to json format
         echo json_encode($output);
     }
