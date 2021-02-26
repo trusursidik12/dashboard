@@ -31,13 +31,13 @@
                   <?php foreach ($idstasiunloop as $stasiun) : ?>
                     <?php foreach ($aqmdata as $data) : ?>
                       <?php if ($stasiun['id_stasiun'] == $data['id_stasiun']) : ?>
-                        <option value="<?= site_url('aqmdata/' . $stasiun['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $stasiun['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $stasiun['id_stasiun'] ?></option>
+                        <option value="<?= site_url('aqmdata/' . $stasiun['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $stasiun['id_stasiun'] ? 'selected' : ''; ?>><?= $stasiun['id_stasiun'] ?></option>
                       <?php endif ?>
                     <?php endforeach ?>
                   <?php endforeach ?>
                   <?php if ($this->fungsi->user_login()->usr_cty_id == '3') : ?>
                     <?php foreach ($aqmstasiunkiec as $kiec) : ?>
-                      <option value="<?= site_url('aqmdata/kiec/' . $kiec['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $kiec['id_stasiun'] ? 'selected' : ''; ?>>KLHK-<?= $kiec['id_stasiun'] ?></option>
+                      <option value="<?= site_url('aqmdata/kiec/' . $kiec['id_stasiun']) ?>" <?= $idstasiun['id_stasiun'] == $kiec['id_stasiun'] ? 'selected' : ''; ?>><?= $kiec['id_stasiun'] ?></option>
                     <?php endforeach ?>
                   <?php endif ?>
                 </select>
