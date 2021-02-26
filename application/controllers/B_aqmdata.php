@@ -93,9 +93,7 @@ class B_aqmdata extends CI_Controller
             } else {
                 $row[] = $aqms->pm10;
                 $row[] = $aqms->pm25;
-                if ($this->fungsi->user_login()->usr_id != 11) {
-                    $row[] = $aqms->tsp;
-                }
+                $row[] = $aqms->tsp;
                 $row[] = $aqms->so2;
                 $row[] = $aqms->co;
                 $row[] = $aqms->o3;
