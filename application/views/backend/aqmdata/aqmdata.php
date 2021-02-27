@@ -74,7 +74,7 @@
                     <th>PIC</th>
                   <?php } ?>
                   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WAKTU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                  <?php if ($idstasiun['id_stasiun'] == 'VALE_SOROWAKO_01') : ?>
+                  <?php if ($idstasiun['id_stasiun'] == 'VALE_ENGGANO') : ?>
                     <th>PM10</th>
                     <th>TSP</th>
                     <th>SO2</th>
@@ -93,7 +93,7 @@
                     <th>NH3</th>
                     <th>NO</th>
                   <?php endif ?>
-                  <?php if ($idstasiun['id_stasiun'] != 'VALE_SOROWAKO_01') : ?>
+                  <?php if ($idstasiun['id_stasiun'] != 'VALE_ENGGANO') : ?>
                     <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' || $idstasiun['id_stasiun'] == 'SKH_CELEP' || $idstasiun['id_stasiun'] == 'SKH_PENGKOL' ? '<th>H2S</th>' : '' ?>
                     <?= $idstasiun['id_stasiun'] == 'SKH_RUM' || $idstasiun['id_stasiun'] == 'SKH_GUPIT' || $idstasiun['id_stasiun'] == 'SKH_PLESAN' || $idstasiun['id_stasiun'] == 'CEMS_RUM' || $idstasiun['id_stasiun'] == 'SKH_CELEP' || $idstasiun['id_stasiun'] == 'SKH_PENGKOL' ? '<th>CS2</th>' : '' ?>
                     <th><?= $idstasiun['id_stasiun'] == 'CEMS_RUM' ? 'VELOCITY' : 'WS' ?></th>

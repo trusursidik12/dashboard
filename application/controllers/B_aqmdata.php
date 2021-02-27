@@ -86,7 +86,7 @@ class B_aqmdata extends CI_Controller
                 $row[] = $aqms->tsp;
             }
             $row[] = date('d-m-Y H:i', strtotime($aqms->waktu));
-            if ($aqms->id_stasiun == 'VALE_SOROWAKO_01') {
+            if ($aqms->id_stasiun == 'VALE_ENGGANO') {
                 $row[] = $aqms->pm10;
                 $row[] = $aqms->tsp;
                 $row[] = $aqms->so2;
