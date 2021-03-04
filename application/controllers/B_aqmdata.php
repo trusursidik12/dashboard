@@ -89,7 +89,8 @@ class B_aqmdata extends CI_Controller
             if ($aqms->id_stasiun == 'VALE_ENGGANO') {
                 $row[] = $aqms->pm10;
                 $row[] = $aqms->tsp;
-                $row[] = $aqms->so2;
+                $row[] = $aqms->so2; //MIKROGRAM
+                $row[] = ($aqms->so2 / 1000 * 24.45) / 64.06; //PPM
             } else {
                 $row[] = $aqms->pm10;
                 $row[] = $aqms->pm25;

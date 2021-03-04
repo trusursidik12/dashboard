@@ -77,7 +77,8 @@
                   <?php if ($idstasiun['id_stasiun'] == 'VALE_ENGGANO') : ?>
                     <th>PM10</th>
                     <th>TSP</th>
-                    <th>SO2</th>
+                    <th>SO2 μg</th>
+                    <th>SO2 ppm</th>
                   <?php else : ?>
                     <th>PM10</th>
                     <th>PM2.5</th>
