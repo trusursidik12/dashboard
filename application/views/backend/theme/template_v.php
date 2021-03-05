@@ -278,42 +278,42 @@
                     </a>
                 </li>
               <?php endif ?>
-              <li class="nav-item has-treeview
-            <?= $this->uri->uri_string() == 'laporan/data/hari'
-                || $this->uri->uri_string() == 'laporan/data/bulan'
-                || $this->uri->uri_string() == 'laporan/data/tahun' ? 'menu-open' : ''; ?>">
-                <a href="#" class="nav-link
-              <?= $this->uri->uri_string() == 'laporan/data/hari'
-                || $this->uri->uri_string() == 'laporan/data/bulan'
-                || $this->uri->uri_string() == 'laporan/data/tahun' ? 'active' : ''; ?>">
-                  <i class="nav-icon fas fa-file-export"></i>
-                  <p>
-                    Laporan Data KLHK
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="<?= site_url('laporan/data/hari'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/data/hari' ? 'active' : ''; ?>">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Hari</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="<?= site_url('laporan/data/bulan'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/data/bulan' ? 'active' : ''; ?>">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Bulan</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="<?= site_url('laporan/data/tahun'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/data/tahun' ? 'active' : ''; ?>">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Tahun</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
               <?php if ($this->fungsi->user_login()->usr_cty_id == '3' || $this->fungsi->user_login()->usr_cty_id == '8') : ?>
+                <li class="nav-item has-treeview
+            <?= $this->uri->uri_string() == 'laporan/data/hari'
+                  || $this->uri->uri_string() == 'laporan/data/bulan'
+                  || $this->uri->uri_string() == 'laporan/data/tahun' ? 'menu-open' : ''; ?>">
+                  <a href="#" class="nav-link
+              <?= $this->uri->uri_string() == 'laporan/data/hari'
+                  || $this->uri->uri_string() == 'laporan/data/bulan'
+                  || $this->uri->uri_string() == 'laporan/data/tahun' ? 'active' : ''; ?>">
+                    <i class="nav-icon fas fa-file-export"></i>
+                    <p>
+                      Laporan Data KLHK
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="<?= site_url('laporan/data/hari'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/data/hari' ? 'active' : ''; ?>">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Hari</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?= site_url('laporan/data/bulan'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/data/bulan' ? 'active' : ''; ?>">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Bulan</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?= site_url('laporan/data/tahun'); ?>" class="nav-link <?= $this->uri->uri_string() == 'laporan/data/tahun' ? 'active' : ''; ?>">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Tahun</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
                 <li class="nav-item has-treeview
               <?= $this->uri->uri_string() == 'laporan/ispu/hari'
                   || $this->uri->uri_string() == 'laporan/ispu/bulan'
