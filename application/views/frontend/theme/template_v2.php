@@ -28,7 +28,7 @@
   </style>
   <script src="<?= base_url('assets/frontend/js/jschart/chart/chart.min.js'); ?>"></script>
   <script src="<?= base_url('assets/frontend/js/jschart/chart/utils.js'); ?>"></script>
-
+  <script src="<?= base_url() ?>assets/frontend/js/3.5.1/jquery.min.js"></script>
   <!-- <script src="<?= base_url() ?>assets/frontend/js/jschart/jquery.min.js"></script> -->
   <!-- <script src="<?= base_url() ?>assets/frontend/js/bootstrap.bundle.min.js"></script> -->
   <meta http-equiv="refresh" content="300">
@@ -42,7 +42,7 @@
   </div>
   </div>
 
-  <script src="<?= base_url() ?>assets/frontend/js/3.5.1/jquery.min.js"></script>
+
   <script src="<?= base_url() ?>assets/frontend/js/popper.js"></script>
   <script src="<?= base_url() ?>assets/frontend/js/3.4.1/bootstrap.min.js"></script>
   <script src="<?= base_url() ?>assets/frontend/js/main.js"></script>
