@@ -23,14 +23,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-// $config['base_url'] = 'https://ispumaps.id/dashboard/';
-$config['base_url'] = 'http://localhost/dashboard/';
+$config['base_url'] = 'https://ispumaps.id/dashboard/';
+// $config['base_url'] = 'http://localhost/dashboard/';
 
-// $link = "http" . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "s" : "") . "://";
-// $server = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'];
-// $config['base_url']  = $link . $server;
-// $dir = preg_replace('@/+$@', '', dirname($_SERVER['SCRIPT_NAME'])) . '/';
-// $config['base_url'] .= $dir;
+$link = "http" . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "s" : "") . "://";
+$server = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'];
+$config['base_url']  = $link . $server;
+$dir = preg_replace('@/+$@', '', dirname($_SERVER['SCRIPT_NAME'])) . '/';
+$config['base_url'] .= $dir;
 
 /*
 |--------------------------------------------------------------------------
