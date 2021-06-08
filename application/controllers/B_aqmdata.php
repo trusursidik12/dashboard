@@ -86,6 +86,12 @@ class B_aqmdata extends CI_Controller
                 $row[] = $aqms->tsp;
             }
             $row[] = date('d-m-Y H:i', strtotime($aqms->waktu));
+            if ($aqms->id_stasiun == 'PORTABLE_MATARAM') {
+                $row[] = $aqms->sampler_operator_name;
+                $row[] = $aqms->sta_lat;
+                $row[] = $aqms->sta_lon;
+                $row[] = $aqms->sta_alamat;
+            }
             if ($aqms->id_stasiun == 'VALE_ENGGANO') {
                 $row[] = $aqms->pm10;
                 $row[] = $aqms->tsp;

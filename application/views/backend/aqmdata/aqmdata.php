@@ -74,6 +74,12 @@
                     <th>PIC</th>
                   <?php } ?>
                   <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WAKTU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                  <?php if ($idstasiun['id_stasiun'] == 'PORTABLE_MATARAM') : ?>
+                    <th>OPERATOR NAME</th>
+                    <th>LAT</th>
+                    <th>LON</th>
+                    <th>SAMPLING ADDRESS</th>
+                  <?php endif ?>
                   <?php if ($idstasiun['id_stasiun'] == 'VALE_ENGGANO') : ?>
                     <th>PM10</th>
                     <th>TSP</th>
